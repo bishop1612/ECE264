@@ -1,0 +1,8 @@
+Breakpoint 1 at 0x40066f: file pa01.c, line 15.
+Starting program: /home/bishop/ECE264/Homeworks/Solutions/ECE264/PA01/pa01 
+[Inferior 1 (process 2472) exited normally]
+No symbol "len" in current context.
+The program is not being run.
+Starting program: /home/bishop/ECE264/Homeworks/Solutions/ECE264/PA01/pa01 
+[Inferior 1 (process 2478) exited normally]
+The program is not being run.

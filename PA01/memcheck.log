@@ -1,0 +1,80 @@
+==8377== Memcheck, a memory error detector
+==8377== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==8377== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==8377== Command: ./pa01
+==8377== Parent PID: 6243
+==8377== 
+--8377-- 
+--8377-- Valgrind options:
+--8377--    --tool=memcheck
+--8377--    --leak-check=full
+--8377--    --verbose
+--8377--    --log-file=memcheck.log
+--8377-- Contents of /proc/version:
+--8377--   Linux version 3.13.0-32-generic (buildd@kissel) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014
+--8377-- Arch and hwcaps: AMD64, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--8377-- Page sizes: currently 4096, max supported 4096
+--8377-- Valgrind library directory: /usr/lib/valgrind
+--8377-- Reading syms from /home/bishop/ECE264/Homeworks/Solutions/ECE264/PA01/pa01
+--8377-- Reading syms from /lib/x86_64-linux-gnu/ld-2.19.so
+--8377--   Considering /lib/x86_64-linux-gnu/ld-2.19.so ..
+--8377--   .. CRC mismatch (computed 4cbae35e wanted 8d683c31)
+--8377--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.19.so ..
+--8377--   .. CRC is valid
+--8377-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--8377--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--8377--   .. CRC mismatch (computed 37cdde19 wanted adc367dd)
+--8377--    object doesn't have a symbol table
+--8377--    object doesn't have a dynamic symbol table
+--8377-- Scheduler: using generic scheduler lock implementation.
+--8377-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==8377== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-8377-by-bishop-on-???
+==8377== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-8377-by-bishop-on-???
+==8377== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-8377-by-bishop-on-???
+==8377== 
+==8377== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==8377== don't want to do, unless you know exactly what you're doing,
+==8377== or are doing some strange experiment):
+==8377==   /usr/lib/valgrind/../../bin/vgdb --pid=8377 ...command...
+==8377== 
+==8377== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==8377==   /path/to/gdb ./pa01
+==8377== and then give GDB the following command
+==8377==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=8377
+==8377== --pid is optional if only one valgrind process is running
+==8377== 
+--8377-- REDIR: 0x4019ca0 (strlen) redirected to 0x38068331 (???)
+--8377-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--8377--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--8377--   .. CRC mismatch (computed 329d6860 wanted c0186920)
+--8377--    object doesn't have a symbol table
+--8377-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--8377--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--8377--   .. CRC mismatch (computed 1fb85af8 wanted 2e9e3c16)
+--8377--    object doesn't have a symbol table
+==8377== WARNING: new redirection conflicts with existing -- ignoring it
+--8377--     old: 0x04019ca0 (strlen              ) R-> (0000.0) 0x38068331 ???
+--8377--     new: 0x04019ca0 (strlen              ) R-> (2007.0) 0x04c2e1a0 strlen
+--8377-- REDIR: 0x4019a50 (index) redirected to 0x4c2dd50 (index)
+--8377-- REDIR: 0x4019c70 (strcmp) redirected to 0x4c2f2f0 (strcmp)
+--8377-- REDIR: 0x401a9c0 (mempcpy) redirected to 0x4c31da0 (mempcpy)
+--8377-- Reading syms from /lib/x86_64-linux-gnu/libc-2.19.so
+--8377--   Considering /lib/x86_64-linux-gnu/libc-2.19.so ..
+--8377--   .. CRC mismatch (computed 2b8f2acf wanted 60636809)
+--8377--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.19.so ..
+--8377--   .. CRC is valid
+--8377-- REDIR: 0x4ec4ba0 (strcasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--8377-- REDIR: 0x4ec6e90 (strncasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--8377-- REDIR: 0x4ec4370 (memcpy@GLIBC_2.2.5) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--8377-- REDIR: 0x4ec2600 (rindex) redirected to 0x4c2da30 (rindex)
+--8377-- REDIR: 0x4ec0900 (strlen) redirected to 0x4c2e0e0 (strlen)
+--8377-- REDIR: 0x4ebac30 (free) redirected to 0x4c2bd80 (free)
+==8377== 
+==8377== HEAP SUMMARY:
+==8377==     in use at exit: 0 bytes in 0 blocks
+==8377==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==8377== 
+==8377== All heap blocks were freed -- no leaks are possible
+==8377== 
+==8377== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==8377== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
