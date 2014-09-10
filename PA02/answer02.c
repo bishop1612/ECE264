@@ -8,6 +8,7 @@
  *                  // consider this case. See the README -- FAQ for more info.
  */
 #include <stdlib.h>
+ #include <stdio.h>
 
 size_t my_strlen(const char * str) {
 	int pos = -1;
@@ -52,21 +53,19 @@ int my_countchar(const char * str, char ch) {
 
 char * my_strchr(const char * str, int ch){
 	int pos = 0;
-	
-	if(ch == '\0')
-		return "";
-	
+
 	while(str[pos] != '\0'){
-		if(str[pos] == ch)
+		if(str[pos] == (char) ch)
 		{
-			loc = pos;
-			return (char *)	pos;
+			return (char *)	&str[pos];
 		}
 		pos++;
 	}
-	
-	
-	
+
+	if((char) ch == '\0')
+	{
+		return (char *) &str[pos];
+	}
 	return NULL;
 }
 
@@ -82,27 +81,27 @@ char * my_strchr(const char * str, int ch){
  * printf("'%s'\n", my_strrchr(str, '\0')); // prints "''\n" *
  */
 char * my_strrchr(const char * str, int ch) {
-	int len = 0;
-	int iter = 0;
-	len = my_strlen(str);
-	int pos = -1;
-	char newchar[len+1];
-	for(iter = 0;iter <= len;iter++)
-	{
-		if(str[iter] == (char)ch)
+	int loc = 0;
+	int pos = 0;
+	int find = 0;
+	
+	
+	while(str[pos] != '\0'){
+		if(str[pos] == (char) ch)
 		{
-			pos = iter;
+			find = 1;
+			loc = pos;
 		}
+		pos++;
 	}
-	if(pos != -1)
-	{	
-		iter = 0;
-		while(pos >= (len))
-		{
-			newchar[iter++] = str[pos++];
-		}		
+	if((char) ch == '\0')
+	{
+		return (char *) &str[pos];
 	}
-	return newchar;
+	if(find == 0)
+		return NULL;
+
+	return (char *)	&str[loc];
 }
 
 /** Finds the first occurance of C-string 'needle' in C-string 'haystack'
@@ -116,24 +115,32 @@ char * my_strrchr(const char * str, int ch) {
  * printf("'%s'\n", my_strstr(str, "hello")); // prints "'(null)'\n"
  *                                      // i.e., my_strstr(str, "hello") == NULL
  */
-/*char * my_strstr(const char * haystack, const char * needle) {
-	int len,len2 = 0;
-	int iter,iter2 = 0;
-	len = my_strlen(haystack);
-	int pos = 0;
-	char str[len + 1] = NULL;
-	char newchar[len+1] = NULL;
-	for(iter = 0;iter <= len;iter++)
+ char * my_strstr(const char * haystack, const char * needle) {
+	if(needle[0] == '\0')
 	{
-			newchar[iter] = str[pos];
-			if(str[pos] == " ")
-			{
-
-			}		
+		return (char *) haystack;
 	}
-	return newchar;
+	int iter,ct = 0;
+	int place = 0;
+	int pos = 0;
+	while(haystack[pos++] != '\0')
+	{
+		place = pos;
+		iter = pos;
+		ct = 0;
+		while(needle[ct] == haystack[iter] && needle[ct] != '\0')
+		{
+			iter++;
+			ct++;
+		}
+		if(needle[ct] == '\0')
+		{
+			return (char *)	&haystack[place];
+		}
+	}
+	return NULL;
 
-}*/
+}
 
 /**
  * Copys C-string 'src' (including the null-byte terminator) into the memory 
@@ -174,24 +181,15 @@ char * my_strcpy(char * dest, const char * src)
  */
 char * my_strcat(char * dest, const char * src)
 {
-	int len,len2 = 0;
-	int iter = 0;
-	len = my_strlen(src);
-	len2 = my_strlen(dest);
-	char new[len+len2+1];
 	int pos = -1;
-	int newpos = 0;
-	while(dest[++pos] != '\0') {
-		new[newpos] = dest[pos];
-		newpos++;
-	}
-	pos = -1;
+	int len = 0;
+	len = my_strlen(dest);
 	while(src[++pos] != '\0') {
-		new[newpos] = src[pos];
-		newpos++;
+		dest[len] = src[pos];
+		len++;
 	}
-	new[newpos] = '\0';
-	return new;
+	dest[len] = '\0';
+	return dest;
 }
 
 /**
@@ -260,14 +258,15 @@ int my_atoi(const char * str)
 		if(str[iter] == '-')
 		{
 			pos = -1;
+			continue;
 		}
-		ret = 0;
-		while(*str >= '0' && *str <= '9')
+		while(str[iter] >= '0' && str[iter] <= '9')
 		{
 			ret *= 10;
-			ret += (*str - '0');
-			str++;
+			ret += (str[iter] - '0');
+			iter++;
 		}
+		break;
 	}
 	if(pos == -1)
 		ret = -ret;
