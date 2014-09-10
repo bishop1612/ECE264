@@ -8,7 +8,7 @@
  *                  // consider this case. See the README -- FAQ for more info.
  */
 #include <stdlib.h>
- #include <stdio.h>
+#include <stdio.h>
 
 size_t my_strlen(const char * str) {
 	int pos = -1;
