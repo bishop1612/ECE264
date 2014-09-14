@@ -1,8 +1,6 @@
-#ifndef PA03_H
-#define PA03_H 
-
 #include <stdlib.h>
-
+#include <stdio.h>
+#include <string.h>
 /**
  * Append the C-string 'src' to the end of the C-string '*dest'.
  *
@@ -16,7 +14,7 @@
  * (1) malloc a new buffer of size 1 + 2 * (strlen(*dest) + strlen(src))
  * (2) set '*n' to the size of the new buffer
  * (3) copy '*dest' into the beginning of the new buffer
- * (4) free the memory '*dest', and then set '*dest' to point to the new buffer
+xv * (4) free the memory '*dest', and then set '*dest' to point to the new buffer
  * (5) concatenate 'src' onto the end of '*dest'.
  *
  * Always returns *dest.
@@ -27,8 +25,35 @@
  * Hint: These <string.h> functions will help: strcat, strcpy, strlen.
  * Hint: Leak no memory.
  */
-char * strcat_ex(char * * dest, int * n, const char * src);
-
+char * strcat_ex(char * * dest, int * n, const char * src)
+{
+	//int src_len = strlen(src);
+	//int dst_len = strlen(*dest);
+	//printf("En\n");
+printf("After swap, str1 == %p (i.e., '%s'), "
+       "str2 == %p (i.e., '%s')\n", src, src, *dest, *dest);
+	char *temp;
+	if((*dest == NULL) || (strlen(*dest) + strlen(src) + 1 > *n))
+	{
+		//printf("INSIDE CONDITION STATEMENT\nSpace to be allocated %d\n", (int)((1 + 2 * ((*dest==NULL?0:strlen(*dest)) + strlen(src))) * sizeof(char )) );
+		temp = malloc((1 + 2 * ( (*dest==NULL?0:strlen(*dest)) + strlen(src))) * sizeof(char )) ;
+		*n = sizeof(temp);
+		//printf("value of n is %d\n", *n);
+		if(*dest != NULL)
+		{
+			strcpy(temp,*dest);
+			free(*dest);
+		}
+		//printf("temp's content after strcpy : %s\n", temp);
+		// free(NULL) won't throw an error
+		*dest = (char *) &temp;
+		//free(temp);
+	}
+	*dest = strcat(*dest,src);
+	//printf("After swap, str1 == %p (i.e., '%s'), "
+       //"str2 == %p (i.e., '%s')\n", src, src, *dest, *dest);
+	return *dest;
+}
 /**
  * Takes a string and splits it into an array of strings according to delimiter.
  * The memory location '*arrLen' is initialized to the length of the returned
@@ -51,7 +76,10 @@ char * strcat_ex(char * * dest, int * n, const char * src);
  * Hint: this question is hard; it will help to draw out your algorithm.
  * Hint: read the FAQ...
  */
-char * * explode(const char * str, const char * delims, int * arrLen);
+char * * explode(const char * str, const char * delims, int * arrLen)
+{
+	return NULL;
+}
 
 /**
  * Takes an array of strings, and concatenates the elements into a single
@@ -69,7 +97,10 @@ char * * explode(const char * str, const char * delims, int * arrLen);
  *
  * Hint: use strcat_ex in a for loop.
  */
-char * implode(char * * strArr, int len, const char * glue);
+char * implode(char * * strArr, int len, const char * glue)
+{
+	return NULL;
+}
 
 /**
  * Takes an array of C-strings, and sorts them alphabetically, ascending.
@@ -80,15 +111,17 @@ char * implode(char * * strArr, int len, const char * glue);
  * For example, 
  * int len;
  * char * * strArr = explode("lady beatle brew", " ", &len);
- * sortStringArray(strArr, len);
+ * sortStringArr, len);
  * char * str = implode(strArr, len, " ");
  * printf("%s\n"); // beatle brew lady
  *
  * Hint: use the <stdlib.h> function "qsort"
  * Hint: you must _clearly_ understand the typecasts.
  */
-void sortStringArray(char * * arrString, int len);
-
+void sortStringArray(char * * arrString, int len)
+{
+	return NULL;
+}
 /**
  * Sorts the characters in a string.
  *
@@ -102,8 +135,10 @@ void sortStringArray(char * * arrString, int len);
  * Hint: use the <stdlib.h> function "qsort"
  * Hint: you must _clearly_  understand the typecasts.
  */
-void sortStringCharacters(char * str);
-
+void sortStringCharacters(char * str)
+{
+	return NULL;
+}
 /**
  * Safely frees all memory associated with strArr, and then strArr itself.
  * Passing NULL as the first parameter has no effect.
@@ -118,6 +153,7 @@ void sortStringCharacters(char * str);
  * destroyStringArray(strArr, len); // cleans memory -- no memory leaks
  * destroyStringArray(NULL, 0); // does nothing, does not crash.
  */
-void destroyStringArray(char * * strArr, int len);
-
-#endif
+void destroyStringArray(char * * strArr, int len)
+{
+	return NULL;
+}
