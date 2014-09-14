@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
+#include "answer03.h"
 // This does not work... fix it.
 // Hint: look up swap(int *, int *) in the course notes
 void swapString(char * a, char * b)
@@ -18,11 +18,11 @@ void swapString(char * a, char * b)
 
 int main(int argc, char * * argv)
 {
-    printf("Welcome to PA03.\n"
+    /*printf("Welcome to PA03.\n"
 	   "\n"
 	   "Please make sure that the swapString(...) function works\n"
 	   "\n");
-    
+   
     printf("Print out some memory addresses for argc, argv...\n"
 	   "to illustrate how memory is laid out.\n");
     printf("&argc = %p\n", &argc);
@@ -40,7 +40,21 @@ int main(int argc, char * * argv)
 	   "str2 == %p (i.e., '%s')\n", str1, str1, str2, str2);
     swapString((char *)&str1, (char *)&str2);
     printf("After swap, str1 == %p (i.e., '%s'), "
-	   "str2 == %p (i.e., '%s')\n", str1, str1, str2, str2);
+	   "str2 == %p (i.e., '%s')\n", str1, str1, str2, str2);*/
+
+    const char *str1 = "one";
+    char ** str2 = malloc((5) * sizeof(char *));
+    *str2 = NULL;
+    //*str2 = "Hel";
+    //char * * str2 = NULL;
+    int *n = malloc(sizeof(int));
+    *n = sizeof(*str2);
+    printf("Before swap, str1 == %p (i.e., '%s'), "
+       "str2 == %p (i.e., '%s')\n", str1, str1, *str2, *str2);
+    strcat_ex(str2, n, str1);
+    printf("After swap, str1 == %p (i.e., '%s'), "
+      "str2 == %p (i.e., '%s')\n", str1, str1, *str2, *str2);
+    free(*str2);
 
     return EXIT_SUCCESS;
 }
