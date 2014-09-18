@@ -18,7 +18,7 @@ void swapString(char * a, char * b)
 
 int main(int argc, char * * argv)
 {
-    /*printf("Welcome to PA03.\n"
+    printf("Welcome to PA03.\n"
 	   "\n"
 	   "Please make sure that the swapString(...) function works\n"
 	   "\n");
@@ -34,27 +34,13 @@ int main(int argc, char * * argv)
 
     // Let's create our own array of strings
     printf("\nTesting swapString(...)\n");
-    char * str1 = "one";
-    char * str2 = "two";
+    const char * str1 = "one";
+    const char * str2 = "two";
     printf("Before swap, str1 == %p (i.e., '%s'), "
 	   "str2 == %p (i.e., '%s')\n", str1, str1, str2, str2);
     swapString((char *)&str1, (char *)&str2);
     printf("After swap, str1 == %p (i.e., '%s'), "
-	   "str2 == %p (i.e., '%s')\n", str1, str1, str2, str2);*/
-
-    const char *str1 = "one";
-    char ** str2 = malloc((5) * sizeof(char *));
-    *str2 = NULL;
-    //*str2 = "Hel";
-    //char * * str2 = NULL;
-    int *n = malloc(sizeof(int));
-    *n = sizeof(*str2);
-    printf("Before swap, str1 == %p (i.e., '%s'), "
-       "str2 == %p (i.e., '%s')\n", str1, str1, *str2, *str2);
-    strcat_ex(str2, n, str1);
-    printf("After swap, str1 == %p (i.e., '%s'), "
-      "str2 == %p (i.e., '%s')\n", str1, str1, *str2, *str2);
-    free(*str2);
+	   "str2 == %p (i.e., '%s')\n", str1, str1, str2, str2);
 
     return EXIT_SUCCESS;
 }
