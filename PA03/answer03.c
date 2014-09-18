@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
+//Function to compare strings
 int cmpstringp ( const void * arg1 , const void * arg2 )
 {
 	// ptr1 and ptr2 are string *
@@ -12,13 +12,13 @@ int cmpstringp ( const void * arg1 , const void * arg2 )
 	const char * str2 = * ptr2 ;
 	return strcmp(str1,str2);
 }
+//Function to compare characters in a string
 int comparefunc ( const void * arg1 , const void * arg2 ) // for
 {
 	const char * ptr1 = ( const char *) arg1 ;
 	const char * ptr2 = ( const char *) arg2 ;
 	char val1 = * ptr1 ;
 	char val2 = * ptr2 ;
-	// printf (" comparefunc : % d % d \ n " , val1 , val2 ) ;
 	if ( val1 < val2 ) { return -1; }
 	if ( val1 == val2 ) { return 0; }
 	return 1;
@@ -60,7 +60,6 @@ char * strcat_ex(char * * dest, int * n, const char * src)
 	if((*dest == NULL) || ((destlen + srclen + 1) > *n))
 	{
 		char *temp = malloc(1 + 2 * (destlen + srclen)) ;
-		//temp = '';
 		*n = (1 + 2 * (destlen + srclen));
 
 		if(*dest != NULL)
@@ -70,7 +69,6 @@ char * strcat_ex(char * * dest, int * n, const char * src)
 		}
 		*dest = temp;
 	}
-	//printf("\n%s\n",*dest);
 	if(destlen == 0)
 	{
 		strcpy(*dest,src);
@@ -135,20 +133,15 @@ char * * explode(const char * str, const char * delims, int * arrLen)
 			else
 			{
 				strArr[arrInd] = malloc((1) * sizeof(char *));
-				//memcpy(strArr[arrInd], &str[last] , (diff)*sizeof(char));
 				strArr[arrInd][diff] = '\0';
 
 			}
-			//printf("%s", temp);0
 			last = pos + 1;
 			arrInd++;
 		}
-		//iter = 0;
 		pos++;
 	}
-	//printf("%d",pos);
 	diff = strlen(str) - last;
-	//printf("%d",strlen("Hello"));
 	if(diff != 0)
 	{
 		strArr[arrInd] = malloc((diff) * sizeof(char *));
@@ -158,31 +151,10 @@ char * * explode(const char * str, const char * delims, int * arrLen)
 	else
 	{
 		strArr[arrInd] = malloc((1) * sizeof(char *));
-		//memcpy(strArr[arrInd], &str[last] , (diff)*sizeof(char));
 		strArr[arrInd][diff] = '\0';
 	}
 	
 	*arrLen = N+1;
-	
-	//printf("Last : %d",arrInd);
-	/*while(last < strlen(str))
-	{
-
-	}*/
-	/*char *temp2;
-	while(last == strlen(str))
-	{
-		*temp2 = str[last];
-		last++;
-		temp2++;	
-	}
-	strArr[arrInd] = temp2;
-	int iter = 0;
-	while(iter <= N+1)
-	{
-		printf("%s", strArr[iter]);
-		iter++;
-	}*/
 	
 	return (char **)strArr;
 }
@@ -255,13 +227,10 @@ void sortStringArray(char * * arrString, int len)
  */
 void sortStringCharacters(char * str)
 {
-	//printf("%p\n",&str);
 	if(str != NULL)
 	{
 		qsort (str, strlen(str) , sizeof ( char ) , comparefunc ) ;
 	}	
-
-	//printf("%s\n",str);
 }
 /**
  * Safely frees all memory associated with strArr, and then strArr itself.
@@ -279,7 +248,6 @@ void sortStringCharacters(char * str)
  */
 void destroyStringArray(char * * strArr, int len)
 {
-	//printf("%d\n", len);
 	if(strArr != NULL)
 	{	
 		int i = 0;
