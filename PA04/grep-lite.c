@@ -8,7 +8,10 @@ int main(int argc, char **argv)
 	{
 		print()
 	}*/
-	int i = 0; 
+	int i = 0;
+	int q = 0;
+	int v = 0;
+	int n = 0;
 	for(i = 1; i < argc;i++)
 	{
 		if(strcmp(argv[i],"--help") == 0)
@@ -28,11 +31,25 @@ int main(int argc, char **argv)
 	}
 	for(i = 1; i < argc - 1;i++)
 	{
-		if((strcmp(argv[i],"-n") != 0 ) && (strcmp(argv[i],"-q") != 0) && (strcmp(argv[i],"-v") != 0) )
+		if(strcmp(argv[i],"-v") == 0 || strcmp(argv[i],"--invert-match") == 0)
+		{
+			v = 1;
+		
+		}
+		if(strcmp(argv[i],"-n") == 0 || strcmp(argv[i],"--line-number") == 0)
+		{
+			n = 1;
+		}
+		if(strcmp(argv[i],"-q") == 0 || strcmp(argv[i],"--quiet") == 0 )
+		{
+			q = 1;
+		}
+		if(n != 1 && q != 1 && v != 1)
 		{
 			fprintf(stderr,"%s is an unrecognised argument\n",argv[i]);
 			return 2;
-		}		
+		}
+
 	}
 	if(argv[argc-1][0] == '-')
 	{
@@ -44,56 +61,52 @@ int main(int argc, char **argv)
 	FILE *fptr = stdin;
 	int line = 0;
 	int match = 1;
-	while(!feof(fptr))
+	while(!feof(stdin))
 	{
 		char buffer[2000];
+		//char matchstr[2000];
 		fgets(buffer,2000,fptr);
 		line++;
-		if(argc > 2)
+		//matchstr = strstr(buffer,argv[argc-1]);
+		if(strstr(buffer,argv[argc-1]) != NULL)
 		{
-			for(i = 1; i < argc - 1; i++)
+			match = 0;
+		}
+		if(q == 1)
+		{
+			continue;
+		}
+		if(v == 1)
+		{
+			if(strstr(buffer,argv[argc-1]) == NULL)
 			{
-				if(strcmp(argv[i],"-v") == 0)
+				if(n == 1)
 				{
-					if((strstr(buffer,argv[argc-1]) == NULL)) 
-					{
-						if(buffer != NULL){
-							fprintf(stdout,"%s",buffer);
-						}
-						else 
-						{
-							match = 0;
-						}
-					}	
-
+					fprintf(stdout,"%d:",line);
 				}
-				if(strcmp(argv[i],"-n") == 0)
-				{
-					if((strstr(buffer,argv[argc-1]) != NULL)) 
-					{
-						if(buffer != NULL){
-							fprintf(stdout,"%d:",line);
-							fprintf(stdout,"%s",buffer);
-							match = 0;
-						}
-					}	
-
-				}
-				if(strcmp(argv[i],"-q") == 0)
-				{
-					return match;
-				}
-			}	
+				fprintf(stdout,"%s",buffer);
+			}
+			else
+			{
+				match = 0;
+			}
 		}
 		else
 		{
-			if((strstr(buffer,argv[argc-1]) != NULL)) 
+			if(strstr(buffer,argv[argc-1]) != NULL)
 			{
-				if(buffer != NULL){
-					fprintf(stdout,"%s",buffer);
-					match = 0;
+				if(n == 1)
+				{
+					fprintf(stdout,"%d:",line);
 				}
+				fprintf(stdout,"%s",buffer);
+				match = 0;
 			}
+
+		}
+		if(fgetc(fptr) == EOF)
+		{
+			break;
 		}
 	}
 	fclose(fptr);
