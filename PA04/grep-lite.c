@@ -61,12 +61,13 @@ int main(int argc, char **argv)
 	FILE *fptr = stdin;
 	int line = 0;
 	int match = 1;
-	while(!feof(stdin))
+	char buffer[2000];
+	while(fgets(buffer,2000,stdin) != NULL)
 	{
-		char buffer[2000];
 		//char matchstr[2000];
-		fgets(buffer,2000,fptr);
+		//fgets(buffer,2000,stdin);
 		line++;
+		//char ch = fgetc(fptr);
 		//matchstr = strstr(buffer,argv[argc-1]);
 		if(strstr(buffer,argv[argc-1]) != NULL)
 		{
@@ -104,75 +105,11 @@ int main(int argc, char **argv)
 			}
 
 		}
-		if(fgetc(fptr) == EOF)
-		{
-			break;
-		}
+		//if(ch == EOF)
+		//{
+			//break;
+		//}
 	}
 	fclose(fptr);
-
-
-	/*if(argc < 2)
-	{
-		FILE *fptr = stdin;
-		while(!feof(fptr))
-		{
-			char ch = fgetc(fptr);
-			if(ch != EOF)
-			{
-				printf("%c", ch);
-			}
-		}
-		fclose(fptr);
-	}
-	
-	for(i = 1; i < argc;i++)
-	{
-		if(strcmp(argv[i],"-") == 0)
-		{
-			FILE *fptr = stdin;
-			while(!feof(fptr))
-			{
-				char ch = fgetc(fptr);
-				if(ch != EOF)
-				{
-					printf("%c", ch);
-				}
-			}
-			fclose(fptr);
-			
-		}
-		else
-		{
-			//printf("Hello");
-			FILE *fptr;
-			//FILE *fout = stdout;
-			fptr =fopen(argv[i],"r");
-			//printf("%p",fptr);
-			if(fptr == NULL)
-			{
-				//printf("Hello");
-				fprintf(stderr,"cat cannot open %s\n",argv[i]);
-				return EXIT_FAILURE;
-			}
-			while(!feof(fptr))
-			{
-				char ch = fgetc(fptr);
-		        
-				if(ch != EOF)
-				{	
-					//fputc(ch,fout);
-					fprintf(stdout,"%c",ch);
-				}
-				//printf(fout,"");
-			}
-			fclose(fptr);
-
-		}
-		
-		//printf("%s", argv[i]);
-		//printf(" ");
-	}
-	//printf("\n");*/
 	return match;
 }
