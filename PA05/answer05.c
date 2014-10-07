@@ -4,7 +4,7 @@
 
 /*Inefficient*/
 /*Please see Prof. Lu's book to further understand the code*/
-
+//Ready
 /*Printing the partitions*/
 void printPartition(int * arr, int length)
 {
@@ -191,6 +191,7 @@ void partodd(int *arr, int ind, int left)
 		partodd(arr, ind + 1, left - val);
 	}
 }
+
 void partitionOdd(int value)
 {
 	int *arr;
@@ -228,6 +229,7 @@ void parteven(int *arr, int ind, int left)
 		parteven(arr, ind + 1, left - val);
 	}
 }
+
 void partitionEven(int value)
 {
 	int *arr;
@@ -280,6 +282,7 @@ void partoddeven(int *arr, int ind, int left)
 		}
 	}
 }
+
 void partitionOddAndEven(int value)
 {
 	int *arr;
@@ -338,6 +341,7 @@ void partprime(int *arr, int ind, int left)
 		}
 	}
 }
+
 void partitionPrime(int value)
 {
 	int *arr;
