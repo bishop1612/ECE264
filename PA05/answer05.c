@@ -1,8 +1,3 @@
-/**
- * Do not modify this file
- */
-//#ifndef PA05_H
-//#define PA05_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -20,6 +15,8 @@ void printPartition(int * arr, int length)
 	printf("%d\n", arr[length - 1]);
 }
 
+/*Printing the decreasing partitions in reverse order*/
+
 void printPartitiondec(int * arr, int length)
 {
 	int ind;
@@ -30,6 +27,7 @@ void printPartitiondec(int * arr, int length)
 	}
 	printf("%d\n", arr[0]);
 }
+
 /**
  * Prints all the partitions of a positive integer value.
  *
@@ -57,7 +55,6 @@ void partall(int *arr, int ind, int left)
 		arr[ind] = val;
 		partall(arr, ind + 1, left - val);
 	}
-
 }
 
 
@@ -303,6 +300,8 @@ void partitionOddAndEven(int value)
  * Hint: look at file: expected/partitionPrime.output
  */
 
+/*Function to find out whether a function is prime or not*/
+ 
 int prime(int n)
 {
 	int ind;
@@ -316,6 +315,7 @@ int prime(int n)
 	}
 	return rval;
 }
+
 void partprime(int *arr, int ind, int left)
 {
 	int val;
