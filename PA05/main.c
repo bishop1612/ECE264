@@ -14,6 +14,19 @@ int main(int argc, char * argv[])
 	{
 		return EXIT_FAILURE;
 	}
+	printf("Partition All : \n");
+	partitionAll(n);
+	printf("Partition Increasing : \n");
+	partitionIncreasing(n);
+	printf("Partition Decreasing : \n");
+	partitionDecreasing(n);
+	printf("Partition Even : \n");
+	partitionEven(n);
+	printf("Partition Odd : \n");
+	partitionOdd(n);
+	printf("Partition Odd and Even : \n");
+	partitionOddAndEven(n);
+	printf("Partition Prime : \n");
 	partitionPrime(n);
 	return EXIT_SUCCESS;
 
