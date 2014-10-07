@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*Inefficient*/
+
 /*Printing the partitions*/
 
 void printPartition(int * arr, int length)
@@ -301,7 +303,7 @@ void partitionOddAndEven(int value)
  */
 
 /*Function to find out whether a function is prime or not*/
- 
+
 int prime(int n)
 {
 	int ind;
@@ -342,5 +344,4 @@ void partitionPrime(int value)
 	arr = malloc(sizeof(int) * value);
 	partprime(arr, 0, value);
 	free(arr);
-
 }
