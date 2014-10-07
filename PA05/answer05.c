@@ -3,9 +3,9 @@
 #include <string.h>
 
 /*Inefficient*/
+/*Please see Prof. Lu's book to further understand the code*/
 
 /*Printing the partitions*/
-
 void printPartition(int * arr, int length)
 {
 	int ind;
