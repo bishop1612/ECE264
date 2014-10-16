@@ -1,6 +1,6 @@
 #include "answer06.h"
 #include <stdio.h>
-
+//
 void print_d(char** maze, int row, int col, char dir, int w, int h){
 	int iter = 0;
 	int inrow = row;
