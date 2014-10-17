@@ -2,22 +2,37 @@
 #include <stdio.h>
 //
 void print_d(char** maze, int row, int col, char dir, int w, int h){
-	int iter = 0;
-	int inrow = row;
-	int incol = col;
+	int iter = 1;
+	int prviter = 1;
+	//int inrow = row;
+	//int incol = col;
 	if(dir == 'S' || dir == 'N'){
-		do
+		while(row <= h - 1 && row >= 0 && maze[row][col] !=  'X')
 		{
 			if(col != 0){
 				if(maze[row][col - 1] == ' '){
-					printf("%c %d\n", dir, iter);
-					print_d(maze,row,col,'W',w,h);
+					//if(prviter + 1)
+					if(prviter + 1 != iter){
+						printf("%c %d\n", dir, iter - prviter + 1);
+					}
+					else{
+						printf("%c %d\n", dir, iter);
+					}
+					//}
+					prviter = iter;
+					print_d(maze,row,col-1,'W',w,h);
 				}
 			}
 			if(col != w - 1){
 				if(maze[row][col + 1] == ' '){
-					printf("%c %d\n", dir, iter);
-					print_d(maze,row,col,'E',w,h);
+					if(prviter + 1 != iter){
+						printf("%c %d\n", dir, iter - prviter + 1);
+					}
+					else{
+						printf("%c %d\n", dir, iter);
+					}
+					prviter = iter;
+					print_d(maze,row,col+1,'E',w,h);
 				}
 			}
 			if(dir == 'S'){
@@ -28,28 +43,42 @@ void print_d(char** maze, int row, int col, char dir, int w, int h){
 			}
 			iter++;
 		}
-		while(maze[row][col] !=  'X' || row == h - 1 || row != 0);
+		if(prviter + 1 != iter){
+			printf("%c %d\n", dir, iter - prviter);
+		}
 		if(dir == 'S'){
-			printf("N %d\n",iter);
+			printf("N %d\n",iter-1);
 		}
 		else{
-			printf("S %d\n",iter);
+			printf("S %d\n",iter-1);
 		}
 		
 	}
 	if(dir == 'W' || dir == 'E'){
-		do
+		while(col >= 0 && col <= w-1 && maze[row][col] !=  'X' )
 		{
 			if(row != 0){
 				if(maze[row - 1][col] == ' '){
-					printf("%c %d\n", dir, iter);
-					print_d(maze,row,col,'N',w,h);
+					if(prviter + 1 != iter){
+						printf("%c %d\n", dir, iter - prviter + 1);
+					}
+					else{
+						printf("%c %d\n", dir, iter);
+					}
+					prviter = iter;
+					print_d(maze,row-1,col,'N',w,h);
 				}
 			}
 			if(row != h-1){
 				if(maze[row + 1][col] == ' '){
-					printf("%c %d\n", dir, iter);
-					print_d(maze,row,col,'S',w,h);
+					if(prviter + 1 != iter){
+						printf("%c %d\n", dir, iter - prviter + 1);
+					}
+					else{
+						printf("%c %d\n", dir, iter);
+					}
+					prviter = iter;
+					print_d(maze,row+1,col,'S',w,h);
 				}
 			}
 			if(dir == 'W'){
@@ -60,24 +89,23 @@ void print_d(char** maze, int row, int col, char dir, int w, int h){
 			}
 			iter++;
 		}
-		while(maze[row][col] !=  'X' || col != 0 || col != w-1);
-		
+		//printf("%c %d\n", dir, iter - 1);
+		if(prviter + 1 != iter){
+			printf("%c %d\n", dir, iter - prviter);
+		}
 		if(dir == 'E'){
-			printf("W %d\n",iter);
+			printf("W %d\n",iter-1);
 		}
 		else{
-			printf("E %d\n",iter);
+			printf("E %d\n",iter-1);
 		}
-	}
-	if(row != 0 && col != (w+1)/2)
-	{
-		print_d(maze,row,col,dir,w,h);
 	}
 }
 
 void print_directions(char** maze, int w, int h) {
-	int row = 0;
+	int row = 1;
 	int col = (w + 1)/2;
 	char dir = 'S';
+	//printf("\n");
 	print_d(maze,row,col,dir,w,h);
 }
