@@ -11,17 +11,6 @@ void print_d(char** maze, int row, int col, char dir, int w, int h){
 		{
 			//If space is ' ' then call the function again with new direction
 			
-			//Checking for space in the West side
-			if(col != 0){
-				if(maze[row][col - 1] == ' '){
-					if(iter != 0){
-						printf("%c %d\n", dir, iter);
-					}//
-					print_d(maze,row,col-1,'W',w,h);
-					iter = 0;
-				}
-			}
-
 			//Checking for space in the east side
 			if(col != w - 1){
 				if(maze[row][col + 1] == ' '){
@@ -33,6 +22,18 @@ void print_d(char** maze, int row, int col, char dir, int w, int h){
 				}
 			}
 
+			//Checking for space in the West side
+			if(col != 0){
+				if(maze[row][col - 1] == ' '){
+					if(iter != 0){
+						printf("%c %d\n", dir, iter);
+					}//
+					print_d(maze,row,col-1,'W',w,h);
+					iter = 0;
+				}
+			}
+
+			
 			//Increment/Decrement rows based on direction
 			if(dir == 'S'){
 				row++;
@@ -111,8 +112,13 @@ void print_d(char** maze, int row, int col, char dir, int w, int h){
 }
 
 void print_directions(char** maze, int w, int h) {
-	int row = 1;
-	int col = (w + 1)/2;
+	int row = 0;
+	int col = 0;
+	//int col = (w + 1)/2;
+	while(maze[row][col] != ' '){
+		col++;
+	}
+	row = 1;
 	char dir = 'S';
 	//Sending it to the function from first row
 	print_d(maze,row,col,dir,w,h);
