@@ -114,7 +114,8 @@ void print_d(char** maze, int row, int col, char dir, int w, int h){
 void print_directions(char** maze, int w, int h) {
 	int row = 0;
 	int col = 0;
-	//int col = (w + 1)/2;
+	
+	//Checking for the initial space
 	while(maze[row][col] != ' '){
 		col++;
 	}
