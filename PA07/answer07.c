@@ -230,7 +230,9 @@ void linearNormalization(int width, int height, uint8_t * intensity)
 	min = intensity[0];
 
 	//CHecking linearization
-	
+
+
+	//	Finding the maximum and minimum intensity
 	for(iter = 0; iter < width * height; iter++){
 		if(intensity[iter] > max){
 			max = intensity[iter];
@@ -239,6 +241,8 @@ void linearNormalization(int width, int height, uint8_t * intensity)
 			min = intensity[iter];
 		}
 	}
+
+	// Changing the normalization
 	for(iter = 0; iter < width * height; iter++){
 		 intensity[iter] = (intensity[iter] - min) * 255.0 / (max - min);
 	}
