@@ -124,6 +124,7 @@ Image * Image_load(const char * filename)
 	image -> comment = NULL;
 	image -> data = NULL;
 	image -> comment = malloc(sizeof(char) * header.comment_len);
+	//checking the comments
 	if(image -> comment == NULL){
 		return cleanUp(fptr,image);
 	}
@@ -144,6 +145,7 @@ Image * Image_load(const char * filename)
 		return cleanUp(fptr,image);
 	}
 
+	//Checking if we reached the end of the file
 	uint8_t byte;
 	if(fread((&byte),sizeof(uint8_t),1,fptr) != 0)
 	{
@@ -174,17 +176,20 @@ int Image_save(const char * filename, Image * image)
 	{
 		return 0;
 	}
+	//Writing the header
 	if(fwrite(&header,sizeof(ImageHeader),1,fptr) != 1)
 	{
 		fclose(fptr);
 		return 0;
 	}
 
+	//Writing the comment
 	if(fwrite(image -> comment, sizeof(char), header.comment_len, fptr) != (header.comment_len)){
 		fclose(fptr);
 		return 0;
 	}
 
+	//Writing the image pixels
 	int nbytes = image -> width * image -> height;
 
 	if(fwrite(image -> data, sizeof(uint8_t), nbytes, fptr) != (nbytes)){
@@ -208,6 +213,7 @@ int Image_save(const char * filename, Image * image)
  */
 void Image_free(Image * image)
 {
+	//Freeing everything
 	free(image ->  comment);
 	free(image ->  data);
 	free(image);
@@ -222,6 +228,9 @@ void linearNormalization(int width, int height, uint8_t * intensity)
 	int iter = 0;
 	max = intensity[0];
 	min = intensity[0];
+
+	//CHecking linearization
+	
 	for(iter = 0; iter < width * height; iter++){
 		if(intensity[iter] > max){
 			max = intensity[iter];
