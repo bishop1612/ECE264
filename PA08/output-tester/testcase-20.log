@@ -1,0 +1,9 @@
+
+Testcase 20
+   Testing List_merge(lhs, rhs, compar), where:
+   
+   + compar is: return strcmp(a, b)
+   + lhs is: "2" ==> "3" ==> "5" ==> "7" ==> NULL
+   + rhs is: "11" ==> "13" ==> "17" ==> "19" ==> "23" ==> NULL
+   Testcase timed out after 5s, probably infinite loop.
+Testcase FAILED. Log file saved to testcase-20.log

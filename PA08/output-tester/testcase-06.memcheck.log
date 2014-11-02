@@ -1,0 +1,126 @@
+==7496== Memcheck, a memory error detector
+==7496== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==7496== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==7496== Command: ./a.out 5
+==7496== Parent PID: 7495
+==7496== 
+--7496-- 
+--7496-- Valgrind options:
+--7496--    --tool=memcheck
+--7496--    --leak-check=full
+--7496--    --verbose
+--7496--    --log-file=memcheck.log
+--7496-- Contents of /proc/version:
+--7496--   Linux version 3.13.0-32-generic (buildd@kissel) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014
+--7496-- Arch and hwcaps: AMD64, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--7496-- Page sizes: currently 4096, max supported 4096
+--7496-- Valgrind library directory: /usr/lib/valgrind
+--7496-- Reading syms from /tmp/.rpjb1q/a.out
+--7496-- Reading syms from /lib/x86_64-linux-gnu/ld-2.19.so
+--7496--   Considering /lib/x86_64-linux-gnu/ld-2.19.so ..
+--7496--   .. CRC mismatch (computed 4cbae35e wanted 8d683c31)
+--7496--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.19.so ..
+--7496--   .. CRC is valid
+--7496-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--7496--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--7496--   .. CRC mismatch (computed 37cdde19 wanted adc367dd)
+--7496--    object doesn't have a symbol table
+--7496--    object doesn't have a dynamic symbol table
+--7496-- Scheduler: using generic scheduler lock implementation.
+--7496-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==7496== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-7496-by-bishop-on-???
+==7496== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-7496-by-bishop-on-???
+==7496== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-7496-by-bishop-on-???
+==7496== 
+==7496== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==7496== don't want to do, unless you know exactly what you're doing,
+==7496== or are doing some strange experiment):
+==7496==   /usr/lib/valgrind/../../bin/vgdb --pid=7496 ...command...
+==7496== 
+==7496== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==7496==   /path/to/gdb ./a.out
+==7496== and then give GDB the following command
+==7496==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=7496
+==7496== --pid is optional if only one valgrind process is running
+==7496== 
+--7496-- REDIR: 0x4019ca0 (strlen) redirected to 0x38068331 (???)
+--7496-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--7496--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--7496--   .. CRC mismatch (computed 329d6860 wanted c0186920)
+--7496--    object doesn't have a symbol table
+--7496-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--7496--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--7496--   .. CRC mismatch (computed 1fb85af8 wanted 2e9e3c16)
+--7496--    object doesn't have a symbol table
+==7496== WARNING: new redirection conflicts with existing -- ignoring it
+--7496--     old: 0x04019ca0 (strlen              ) R-> (0000.0) 0x38068331 ???
+--7496--     new: 0x04019ca0 (strlen              ) R-> (2007.0) 0x04c2e1a0 strlen
+--7496-- REDIR: 0x4019a50 (index) redirected to 0x4c2dd50 (index)
+--7496-- REDIR: 0x4019c70 (strcmp) redirected to 0x4c2f2f0 (strcmp)
+--7496-- REDIR: 0x401a9c0 (mempcpy) redirected to 0x4c31da0 (mempcpy)
+--7496-- Reading syms from /lib/x86_64-linux-gnu/libc-2.19.so
+--7496--   Considering /lib/x86_64-linux-gnu/libc-2.19.so ..
+--7496--   .. CRC mismatch (computed 2b8f2acf wanted 60636809)
+--7496--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.19.so ..
+--7496--   .. CRC is valid
+--7496-- REDIR: 0x4ec4ba0 (strcasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--7496-- REDIR: 0x4ec6e90 (strncasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--7496-- REDIR: 0x4ec4370 (memcpy@GLIBC_2.2.5) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--7496-- REDIR: 0x4ec2600 (rindex) redirected to 0x4c2da30 (rindex)
+--7496-- REDIR: 0x4eba590 (malloc) redirected to 0x4c2ab10 (malloc)
+--7496-- REDIR: 0x4ec0900 (strlen) redirected to 0x4c2e0e0 (strlen)
+--7496-- REDIR: 0x4ec95c0 (__GI_memcpy) redirected to 0x4c2fc90 (__GI_memcpy)
+--7496-- REDIR: 0x4ecb900 (strchrnul) redirected to 0x4c319b0 (strchrnul)
+--7496-- REDIR: 0x4ebac30 (free) redirected to 0x4c2bd80 (free)
+==7496== Invalid read of size 8
+==7496==    at 0x400989: List_destroy (answer08.c:39)
+==7496==    by 0x4015B1: tests_List_destroyNode (test_List_destroyNode.c:51)
+==7496==    by 0x4022D5: main (<stdin>:159)
+==7496==  Address 0x51fd0e8 is 8 bytes inside a block of size 16 free'd
+==7496==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7496==    by 0x40099C: List_destroy (answer08.c:40)
+==7496==    by 0x4015B1: tests_List_destroyNode (test_List_destroyNode.c:51)
+==7496==    by 0x4022D5: main (<stdin>:159)
+==7496== 
+==7496== 
+==7496== HEAP SUMMARY:
+==7496==     in use at exit: 44 bytes in 7 blocks
+==7496==   total heap usage: 12 allocs, 5 frees, 124 bytes allocated
+==7496== 
+==7496== Searching for pointers to 7 not-freed blocks
+==7496== Checked 78,392 bytes
+==7496== 
+==7496== 20 (16 direct, 4 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 3
+==7496==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7496==    by 0x400BEC: List_createNode_sol (<stdin>:19)
+==7496==    by 0x4014F9: tests_List_destroyNode (test_List_destroyNode.c:33)
+==7496==    by 0x4022D5: main (<stdin>:159)
+==7496== 
+==7496== 24 bytes in 5 blocks are definitely lost in loss record 3 of 3
+==7496==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7496==    by 0x4EC0679: strdup (strdup.c:42)
+==7496==    by 0x400BFC: List_createNode_sol (<stdin>:20)
+==7496==    by 0x401529: tests_List_destroyNode (test_List_destroyNode.c:36)
+==7496==    by 0x4022D5: main (<stdin>:159)
+==7496== 
+==7496== LEAK SUMMARY:
+==7496==    definitely lost: 40 bytes in 6 blocks
+==7496==    indirectly lost: 4 bytes in 1 blocks
+==7496==      possibly lost: 0 bytes in 0 blocks
+==7496==    still reachable: 0 bytes in 0 blocks
+==7496==         suppressed: 0 bytes in 0 blocks
+==7496== 
+==7496== ERROR SUMMARY: 7 errors from 3 contexts (suppressed: 0 from 0)
+==7496== 
+==7496== 5 errors in context 1 of 3:
+==7496== Invalid read of size 8
+==7496==    at 0x400989: List_destroy (answer08.c:39)
+==7496==    by 0x4015B1: tests_List_destroyNode (test_List_destroyNode.c:51)
+==7496==    by 0x4022D5: main (<stdin>:159)
+==7496==  Address 0x51fd0e8 is 8 bytes inside a block of size 16 free'd
+==7496==    at 0x4C2BDEC: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7496==    by 0x40099C: List_destroy (answer08.c:40)
+==7496==    by 0x4015B1: tests_List_destroyNode (test_List_destroyNode.c:51)
+==7496==    by 0x4022D5: main (<stdin>:159)
+==7496== 
+==7496== ERROR SUMMARY: 7 errors from 3 contexts (suppressed: 0 from 0)

@@ -1,0 +1,33 @@
+
+Testcase 27
+   Program received signal SIGSEGV, Segmentation fault.
+   0x0000000000400b2d in List_sort (
+       list=<error reading variable: Cannot access memory at address 0x7fffff7feff8>, 
+       compar=<error reading variable: Cannot access memory at address 0x7fffff7feff0>) at answer08.c:147
+   147	{
+   #0  0x0000000000400b2d in List_sort (
+       list=<error reading variable: Cannot access memory at address 0x7fffff7feff8>, 
+       compar=<error reading variable: Cannot access memory at address 0x7fffff7feff0>) at answer08.c:147
+   #1  0x0000000000400baf in List_sort (list=0x605050, 
+       compar=0x400e55 <strcmp_forward>) at answer08.c:163
+   #2  0x0000000000400baf in List_sort (list=0x605050, 
+       compar=0x400e55 <strcmp_forward>) at answer08.c:163
+   #3  0x0000000000400baf in List_sort (list=0x605050, 
+       compar=0x400e55 <strcmp_forward>) at answer08.c:163
+   #4  0x0000000000400baf in List_sort (list=0x605050, 
+       compar=0x400e55 <strcmp_forward>) at answer08.c:163
+   #5  0x0000000000400baf in List_sort (list=0x605050, 
+       compar=0x400e55 <strcmp_forward>) at answer08.c:163
+   #6  0x0000000000400baf in List_sort (list=0x605050, 
+       compar=0x400e55 <strcmp_forward>) at answer08.c:163
+   #7  0x0000000000400baf in List_sort (list=0x605050, 
+       compar=0x400e55 <strcmp_forward>) at answer08.c:163
+   #8  0x0000000000400baf in List_sort (list=0x605050, 
+       compar=0x400e55 <strcmp_forward>) at answer08.c:163
+   #9  0x0000000000400baf in List_sort (list=0x605050, 
+       compar=0x400e55 <strcmp_forward>) at answer08.c:163
+   #10 0x0000000000400baf in List_sort (list=0x605050, 
+       compar=0x400e55 <strcmp_forward>) at answer08.c:163
+   #11 0x0000000000400baf in List_sort (list=0x605050, 
+       compar=0x400e55 <strcmp_forward>) at answer08.c:163
+Testcase FAILED. Log file saved to testcase-27.log

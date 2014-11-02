@@ -1,0 +1,9 @@
+
+Testcase 25
+   Testing List_merge(lhs, rhs, compar), where:
+   
+   + compar is: return strlen(a) - strlen(b)
+   + lhs is: "a" ==> "be" ==> "sea" ==> NULL
+   + rhs is: "deee" ==> NULL
+   Testcase timed out after 5s, probably infinite loop.
+Testcase FAILED. Log file saved to testcase-25.log
