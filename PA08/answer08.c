@@ -55,7 +55,18 @@ int List_length(List * list)
 	}
 	return len;
 }
+/** The function to append two linked lists */
 
+List * list_append(List *list ,List *node){
+	if(list == NULL)
+		return node;
+	List *curr = list;
+	while(curr -> next != NULL){
+		curr = curr -> next;
+	}
+	curr -> next = node;
+	return list;
+}
 /**
  * Merge two sorted lists to produce a final sorted list.
  * 
@@ -87,42 +98,36 @@ List * List_merge(List * lhs,
 		  int (*compar)(const char *, const char*))
 {
 	int comp = 0;
-	List *final_rhs = NULL;
-	List *final_lhs = NULL;
-	if(lhs != NULL || rhs != NULL){
-		comp = compar(lhs -> str, rhs -> str);
-		if(comp < 0){
-			final_rhs = lhs;
-			final_lhs = lhs;
-		}
-		else
-		{
-			final_rhs = rhs;
-			final_lhs = rhs;
-		}
-	}
+	List *final = NULL;
+	List *temp = NULL;
 	while(lhs != NULL && rhs != NULL){
 		comp = compar(lhs -> str, rhs -> str);
 		if(comp < 0){
-			final_rhs -> next = lhs;
+			//final_rhs -> next = lhs;
+			temp = lhs;
 			lhs = lhs -> next;
-			final_rhs = final_rhs -> next;
-			final_rhs -> next = NULL;
+			temp -> next = NULL;
+			final = list_append(final,temp);
+			
+			//final_rhs = final_rhs -> next;
+			//final_rhs -> next = NULL;
 		}
-		else{
-			final_rhs -> next = rhs;
+		else
+		{
+			temp = rhs;
 			rhs = rhs -> next;
-			final_rhs = final_rhs -> next;
-			final_rhs -> next = NULL;
+			temp -> next = NULL;
+			final = list_append(final,temp);
+			//rhs = rhs -> next;
 		}
 	}
 	if(lhs != NULL){
-		final_rhs -> next = lhs;
+		final = list_append(final,lhs);
 	}
 	if(rhs != NULL){
-		final_rhs -> next = rhs;
+		final = list_append(final,rhs);
 	}
-	return final_lhs;
+	return final;
 }
 
 /** 
@@ -147,9 +152,9 @@ List * List_merge(List * lhs,
  */
 List * List_sort(List * list, int (*compar)(const char *, const char*))
 {
-	List *rhs;
+	List *rhs = NULL;
 	List *lhs = list;
-	int mov = 0;
+	int mov = 1;
 	int len = List_length(list);
 	if(len == 0 || len == 1){
 		return list;
@@ -159,12 +164,12 @@ List * List_sort(List * list, int (*compar)(const char *, const char*))
 		list = list -> next;
 		mov++;
 	}
+	rhs = list->next;
 	list->next = NULL;
-	rhs = list;
 	//list = list -> next;
-	List_sort(lhs,compar);
-	List_sort(rhs,compar);
-	List_merge(lhs,rhs,compar);
+	lhs = List_sort(lhs,compar);
+	rhs = List_sort(rhs,compar);
+	list = List_merge(lhs,rhs,compar);
 }
 
 #endif
