@@ -1,0 +1,99 @@
+==7924== Memcheck, a memory error detector
+==7924== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==7924== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==7924== Command: ./a.out images/bmps/05-sagan-stamp.bmp student-out-09_05-sagan-stamp.ee264
+==7924== Parent PID: 7923
+==7924== 
+--7924-- 
+--7924-- Valgrind options:
+--7924--    --tool=memcheck
+--7924--    --leak-check=full
+--7924--    --verbose
+--7924--    --log-file=memcheck-09.log
+--7924-- Contents of /proc/version:
+--7924--   Linux version 3.13.0-32-generic (buildd@kissel) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014
+--7924-- Arch and hwcaps: AMD64, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--7924-- Page sizes: currently 4096, max supported 4096
+--7924-- Valgrind library directory: /usr/lib/valgrind
+--7924-- Reading syms from /tmp/.tNDVBI/a.out
+--7924-- Reading syms from /lib/x86_64-linux-gnu/ld-2.19.so
+--7924--   Considering /lib/x86_64-linux-gnu/ld-2.19.so ..
+--7924--   .. CRC mismatch (computed 4cbae35e wanted 8d683c31)
+--7924--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.19.so ..
+--7924--   .. CRC is valid
+--7924-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--7924--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--7924--   .. CRC mismatch (computed 37cdde19 wanted adc367dd)
+--7924--    object doesn't have a symbol table
+--7924--    object doesn't have a dynamic symbol table
+--7924-- Scheduler: using generic scheduler lock implementation.
+--7924-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==7924== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-7924-by-bishop-on-???
+==7924== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-7924-by-bishop-on-???
+==7924== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-7924-by-bishop-on-???
+==7924== 
+==7924== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==7924== don't want to do, unless you know exactly what you're doing,
+==7924== or are doing some strange experiment):
+==7924==   /usr/lib/valgrind/../../bin/vgdb --pid=7924 ...command...
+==7924== 
+==7924== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==7924==   /path/to/gdb ./a.out
+==7924== and then give GDB the following command
+==7924==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=7924
+==7924== --pid is optional if only one valgrind process is running
+==7924== 
+--7924-- REDIR: 0x4019ca0 (strlen) redirected to 0x38068331 (???)
+--7924-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--7924--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--7924--   .. CRC mismatch (computed 329d6860 wanted c0186920)
+--7924--    object doesn't have a symbol table
+--7924-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--7924--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--7924--   .. CRC mismatch (computed 1fb85af8 wanted 2e9e3c16)
+--7924--    object doesn't have a symbol table
+==7924== WARNING: new redirection conflicts with existing -- ignoring it
+--7924--     old: 0x04019ca0 (strlen              ) R-> (0000.0) 0x38068331 ???
+--7924--     new: 0x04019ca0 (strlen              ) R-> (2007.0) 0x04c2e1a0 strlen
+--7924-- REDIR: 0x4019a50 (index) redirected to 0x4c2dd50 (index)
+--7924-- REDIR: 0x4019c70 (strcmp) redirected to 0x4c2f2f0 (strcmp)
+--7924-- REDIR: 0x401a9c0 (mempcpy) redirected to 0x4c31da0 (mempcpy)
+--7924-- Reading syms from /lib/x86_64-linux-gnu/libc-2.19.so
+--7924--   Considering /lib/x86_64-linux-gnu/libc-2.19.so ..
+--7924--   .. CRC mismatch (computed 2b8f2acf wanted 60636809)
+--7924--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.19.so ..
+--7924--   .. CRC is valid
+--7924-- REDIR: 0x4ec4ba0 (strcasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--7924-- REDIR: 0x4ec6e90 (strncasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--7924-- REDIR: 0x4ec4370 (memcpy@GLIBC_2.2.5) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--7924-- REDIR: 0x4ec2600 (rindex) redirected to 0x4c2da30 (rindex)
+--7924-- REDIR: 0x4ebeeb0 (strcmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--7924-- REDIR: 0x4f78090 (__strcmp_ssse3) redirected to 0x4c2f1b0 (strcmp)
+--7924-- REDIR: 0x4ec0900 (strlen) redirected to 0x4c2e0e0 (strlen)
+--7924-- REDIR: 0x4ecb900 (strchrnul) redirected to 0x4c319b0 (strchrnul)
+--7924-- REDIR: 0x4eba590 (malloc) redirected to 0x4c2ab10 (malloc)
+--7924-- REDIR: 0x4ec3250 (__GI_strstr) redirected to 0x4c32030 (__strstr_sse2)
+--7924-- REDIR: 0x4ec95c0 (__GI_memcpy) redirected to 0x4c2fc90 (__GI_memcpy)
+--7924-- REDIR: 0x4ebac30 (free) redirected to 0x4c2bd80 (free)
+==7924== 
+==7924== HEAP SUMMARY:
+==7924==     in use at exit: 76,905 bytes in 3 blocks
+==7924==   total heap usage: 7 allocs, 4 frees, 309,372 bytes allocated
+==7924== 
+==7924== Searching for pointers to 3 not-freed blocks
+==7924== Checked 78,456 bytes
+==7924== 
+==7924== 76,905 (24 direct, 76,881 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==7924==    at 0x4C2AB80: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==7924==    by 0x401111: Image_loadbmp (<stdin>:101)
+==7924==    by 0x401C79: main (<stdin>:65)
+==7924== 
+==7924== LEAK SUMMARY:
+==7924==    definitely lost: 24 bytes in 1 blocks
+==7924==    indirectly lost: 76,881 bytes in 2 blocks
+==7924==      possibly lost: 0 bytes in 0 blocks
+==7924==    still reachable: 0 bytes in 0 blocks
+==7924==         suppressed: 0 bytes in 0 blocks
+==7924== 
+==7924== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==7924== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
