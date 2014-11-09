@@ -138,18 +138,13 @@ load_tree_from_file(char * filename){
     int arrLen = 0;
     while(fgets(str, 2000, fptr) != NULL)
 	{
-		//char ch = fgetc(fptr);
-		//if(ch != EOF)
-		//{
-			
-			strexplode = explode(str, "\t", &arrLen);
-        	if(arrLen == 3)
-        	{
-            	BusinessNode * node = create_node(strexplode[0], strexplode[1], strexplode[2]);
-            	root = tree_insert(node, root);
-        	}
-        	free(strexplode);
-		//}
+		strexplode = explode(str, "\t", &arrLen);
+    	if(arrLen == 3)
+    	{
+        	BusinessNode * node = create_node(strexplode[0], strexplode[1], strexplode[2]);
+        	root = tree_insert(node, root);
+    	}
+    	free(strexplode);
 	}
 	free(str);
 	fclose(fptr);
