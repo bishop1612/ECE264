@@ -31,11 +31,12 @@ typedef struct bnode {
 BusinessNode *create_node(char * stars, char * name, char * address){
 	BusinessNode *node;
 	node = malloc(sizeof(BusinessNode));
-	BusinessNode -> name = name;
-	BusinessNode -> stars = stars;
-	BusinessNode -> address = address;
-	BusinessNode -> left = NULL;
-	BusinessNode -> right = NULL;
+	node -> name = name;
+	node -> stars = stars;
+	node -> address = address;
+	node -> left = NULL;
+	node -> right = NULL;
+	return node;
 }
 
 
@@ -129,18 +130,18 @@ load_tree_from_file(char * filename){
     fptr = fopen(filename, "r");
     if(fptr == NULL)
     {
-        return(NULL);
+        return NULL;
     }
     BusinessNode * root = NULL;
     char ** strexplode = NULL;
     char * str = malloc(sizeof(char)*2000);
     int arrLen = 0;
-    while(!feof(fptr))
+    while(fgets(str, 2000, fptr) != NULL)
 	{
-		char ch = fgetc(fptr);
-		if(ch != EOF)
-		{
-			fgets(str, 2000, fptr);
+		//char ch = fgetc(fptr);
+		//if(ch != EOF)
+		//{
+			
 			strexplode = explode(str, "\t", &arrLen);
         	if(arrLen == 3)
         	{
@@ -148,10 +149,10 @@ load_tree_from_file(char * filename){
             	root = tree_insert(node, root);
         	}
         	free(strexplode);
-		}
+		//}
 	}
 	free(str);
-	free(fp);
+	fclose(fptr);
 	return(root);
 
 }
@@ -163,21 +164,21 @@ load_tree_from_file(char * filename){
  */
 BusinessNode *
 tree_search_name(char * name, BusinessNode * root){
-	if(root == NULL){
-		return node;
-	}
-	int comp = strcmp(name, root -> name);
-	if(comp == 0){
+	if(root != NULL){
+		int comp = strcmp(name, root -> name);
+		if(comp == 0){
+			return root;
+		}
+		else 
+			if(comp <= 0){
+				root = tree_search_name(name,root->left);
+			}
+			else{
+				root = tree_search_name(name,root->right);
+			}
 		return root;
 	}
-	else 
-		if(comp <= 0){
-			root = tree_search_name(node,root->left);
-		}
-		else{
-			root = tree_search_name(node,root->right);
-		}
-	return root;
+	return NULL;
 }
 
 /* Print out a single node: name, address, and stars
