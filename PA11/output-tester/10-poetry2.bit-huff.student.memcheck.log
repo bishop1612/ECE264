@@ -1,0 +1,223 @@
+==29137== Memcheck, a memory error detector
+==29137== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==29137== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==29137== Command: ./student.out b inputs/10-poetry2.bit-huff
+==29137== Parent PID: 29136
+==29137== 
+--29137-- 
+--29137-- Valgrind options:
+--29137--    --tool=memcheck
+--29137--    --leak-check=full
+--29137--    --verbose
+--29137--    --log-file=memcheck.log
+--29137-- Contents of /proc/version:
+--29137--   Linux version 3.13.0-32-generic (buildd@kissel) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014
+--29137-- Arch and hwcaps: AMD64, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--29137-- Page sizes: currently 4096, max supported 4096
+--29137-- Valgrind library directory: /usr/lib/valgrind
+--29137-- Reading syms from /tmp/.0fOA8S/student.out
+--29137-- Reading syms from /lib/x86_64-linux-gnu/ld-2.19.so
+--29137--   Considering /lib/x86_64-linux-gnu/ld-2.19.so ..
+--29137--   .. CRC mismatch (computed 4cbae35e wanted 8d683c31)
+--29137--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.19.so ..
+--29137--   .. CRC is valid
+--29137-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--29137--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--29137--   .. CRC mismatch (computed 37cdde19 wanted adc367dd)
+--29137--    object doesn't have a symbol table
+--29137--    object doesn't have a dynamic symbol table
+--29137-- Scheduler: using generic scheduler lock implementation.
+--29137-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==29137== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-29137-by-bishop-on-???
+==29137== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-29137-by-bishop-on-???
+==29137== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-29137-by-bishop-on-???
+==29137== 
+==29137== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==29137== don't want to do, unless you know exactly what you're doing,
+==29137== or are doing some strange experiment):
+==29137==   /usr/lib/valgrind/../../bin/vgdb --pid=29137 ...command...
+==29137== 
+==29137== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==29137==   /path/to/gdb ./student.out
+==29137== and then give GDB the following command
+==29137==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=29137
+==29137== --pid is optional if only one valgrind process is running
+==29137== 
+--29137-- REDIR: 0x4019ca0 (strlen) redirected to 0x38068331 (???)
+--29137-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--29137--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--29137--   .. CRC mismatch (computed 329d6860 wanted c0186920)
+--29137--    object doesn't have a symbol table
+--29137-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--29137--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--29137--   .. CRC mismatch (computed 1fb85af8 wanted 2e9e3c16)
+--29137--    object doesn't have a symbol table
+==29137== WARNING: new redirection conflicts with existing -- ignoring it
+--29137--     old: 0x04019ca0 (strlen              ) R-> (0000.0) 0x38068331 ???
+--29137--     new: 0x04019ca0 (strlen              ) R-> (2007.0) 0x04c2e1a0 strlen
+--29137-- REDIR: 0x4019a50 (index) redirected to 0x4c2dd50 (index)
+--29137-- REDIR: 0x4019c70 (strcmp) redirected to 0x4c2f2f0 (strcmp)
+--29137-- REDIR: 0x401a9c0 (mempcpy) redirected to 0x4c31da0 (mempcpy)
+--29137-- Reading syms from /lib/x86_64-linux-gnu/libc-2.19.so
+--29137--   Considering /lib/x86_64-linux-gnu/libc-2.19.so ..
+--29137--   .. CRC mismatch (computed 2b8f2acf wanted 60636809)
+--29137--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.19.so ..
+--29137--   .. CRC is valid
+--29137-- REDIR: 0x4ec4ba0 (strcasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--29137-- REDIR: 0x4ec6e90 (strncasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--29137-- REDIR: 0x4ec4370 (memcpy@GLIBC_2.2.5) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--29137-- REDIR: 0x4ec2600 (rindex) redirected to 0x4c2da30 (rindex)
+--29137-- REDIR: 0x4ebeeb0 (strcmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--29137-- REDIR: 0x4f78090 (__strcmp_ssse3) redirected to 0x4c2f1b0 (strcmp)
+--29137-- REDIR: 0x4ecb900 (strchrnul) redirected to 0x4c319b0 (strchrnul)
+--29137-- REDIR: 0x4eba590 (malloc) redirected to 0x4c2ab10 (malloc)
+--29137-- REDIR: 0x4ec3250 (__GI_strstr) redirected to 0x4c32030 (__strstr_sse2)
+--29137-- REDIR: 0x4ec95c0 (__GI_memcpy) redirected to 0x4c2fc90 (__GI_memcpy)
+--29137-- REDIR: 0x4ebac30 (free) redirected to 0x4c2bd80 (free)
+--29137-- REDIR: 0x4ec0900 (strlen) redirected to 0x4c2e0e0 (strlen)
+==29137== Conditional jump or move depends on uninitialised value(s)
+==29137==    at 0x4E8183E: vfprintf (vfprintf.c:1660)
+==29137==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
+==29137==    by 0x4E8B7E1: snprintf (snprintf.c:33)
+==29137==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
+==29137==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
+==29137==    by 0x401D4D: HuffNode_print (treefun.c:310)
+==29137==    by 0x402119: process_file (example.c:31)
+==29137==    by 0x40229A: main (example.c:81)
+==29137== 
+==29137== Use of uninitialised value of size 8
+==29137==    at 0x4E80CFB: _itoa_word (_itoa.c:179)
+==29137==    by 0x4E849A6: vfprintf (vfprintf.c:1660)
+==29137==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
+==29137==    by 0x4E8B7E1: snprintf (snprintf.c:33)
+==29137==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
+==29137==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
+==29137==    by 0x401D4D: HuffNode_print (treefun.c:310)
+==29137==    by 0x402119: process_file (example.c:31)
+==29137==    by 0x40229A: main (example.c:81)
+==29137== 
+==29137== Conditional jump or move depends on uninitialised value(s)
+==29137==    at 0x4E80D05: _itoa_word (_itoa.c:179)
+==29137==    by 0x4E849A6: vfprintf (vfprintf.c:1660)
+==29137==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
+==29137==    by 0x4E8B7E1: snprintf (snprintf.c:33)
+==29137==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
+==29137==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
+==29137==    by 0x401D4D: HuffNode_print (treefun.c:310)
+==29137==    by 0x402119: process_file (example.c:31)
+==29137==    by 0x40229A: main (example.c:81)
+==29137== 
+==29137== Conditional jump or move depends on uninitialised value(s)
+==29137==    at 0x4E849F2: vfprintf (vfprintf.c:1660)
+==29137==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
+==29137==    by 0x4E8B7E1: snprintf (snprintf.c:33)
+==29137==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
+==29137==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
+==29137==    by 0x401D4D: HuffNode_print (treefun.c:310)
+==29137==    by 0x402119: process_file (example.c:31)
+==29137==    by 0x40229A: main (example.c:81)
+==29137== 
+==29137== Conditional jump or move depends on uninitialised value(s)
+==29137==    at 0x4E81909: vfprintf (vfprintf.c:1660)
+==29137==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
+==29137==    by 0x4E8B7E1: snprintf (snprintf.c:33)
+==29137==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
+==29137==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
+==29137==    by 0x401D4D: HuffNode_print (treefun.c:310)
+==29137==    by 0x402119: process_file (example.c:31)
+==29137==    by 0x40229A: main (example.c:81)
+==29137== 
+==29137== Conditional jump or move depends on uninitialised value(s)
+==29137==    at 0x4E8198C: vfprintf (vfprintf.c:1660)
+==29137==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
+==29137==    by 0x4E8B7E1: snprintf (snprintf.c:33)
+==29137==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
+==29137==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
+==29137==    by 0x401D4D: HuffNode_print (treefun.c:310)
+==29137==    by 0x402119: process_file (example.c:31)
+==29137==    by 0x40229A: main (example.c:81)
+==29137== 
+==29137== 
+==29137== HEAP SUMMARY:
+==29137==     in use at exit: 0 bytes in 0 blocks
+==29137==   total heap usage: 141 allocs, 141 frees, 4,718 bytes allocated
+==29137== 
+==29137== All heap blocks were freed -- no leaks are possible
+==29137== 
+==29137== Use --track-origins=yes to see where uninitialised values come from
+==29137== ERROR SUMMARY: 204 errors from 6 contexts (suppressed: 0 from 0)
+==29137== 
+==29137== 34 errors in context 1 of 6:
+==29137== Conditional jump or move depends on uninitialised value(s)
+==29137==    at 0x4E8198C: vfprintf (vfprintf.c:1660)
+==29137==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
+==29137==    by 0x4E8B7E1: snprintf (snprintf.c:33)
+==29137==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
+==29137==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
+==29137==    by 0x401D4D: HuffNode_print (treefun.c:310)
+==29137==    by 0x402119: process_file (example.c:31)
+==29137==    by 0x40229A: main (example.c:81)
+==29137== 
+==29137== 
+==29137== 34 errors in context 2 of 6:
+==29137== Conditional jump or move depends on uninitialised value(s)
+==29137==    at 0x4E81909: vfprintf (vfprintf.c:1660)
+==29137==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
+==29137==    by 0x4E8B7E1: snprintf (snprintf.c:33)
+==29137==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
+==29137==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
+==29137==    by 0x401D4D: HuffNode_print (treefun.c:310)
+==29137==    by 0x402119: process_file (example.c:31)
+==29137==    by 0x40229A: main (example.c:81)
+==29137== 
+==29137== 
+==29137== 34 errors in context 3 of 6:
+==29137== Conditional jump or move depends on uninitialised value(s)
+==29137==    at 0x4E849F2: vfprintf (vfprintf.c:1660)
+==29137==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
+==29137==    by 0x4E8B7E1: snprintf (snprintf.c:33)
+==29137==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
+==29137==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
+==29137==    by 0x401D4D: HuffNode_print (treefun.c:310)
+==29137==    by 0x402119: process_file (example.c:31)
+==29137==    by 0x40229A: main (example.c:81)
+==29137== 
+==29137== 
+==29137== 34 errors in context 4 of 6:
+==29137== Conditional jump or move depends on uninitialised value(s)
+==29137==    at 0x4E80D05: _itoa_word (_itoa.c:179)
+==29137==    by 0x4E849A6: vfprintf (vfprintf.c:1660)
+==29137==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
+==29137==    by 0x4E8B7E1: snprintf (snprintf.c:33)
+==29137==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
+==29137==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
+==29137==    by 0x401D4D: HuffNode_print (treefun.c:310)
+==29137==    by 0x402119: process_file (example.c:31)
+==29137==    by 0x40229A: main (example.c:81)
+==29137== 
+==29137== 
+==29137== 34 errors in context 5 of 6:
+==29137== Use of uninitialised value of size 8
+==29137==    at 0x4E80CFB: _itoa_word (_itoa.c:179)
+==29137==    by 0x4E849A6: vfprintf (vfprintf.c:1660)
+==29137==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
+==29137==    by 0x4E8B7E1: snprintf (snprintf.c:33)
+==29137==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
+==29137==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
+==29137==    by 0x401D4D: HuffNode_print (treefun.c:310)
+==29137==    by 0x402119: process_file (example.c:31)
+==29137==    by 0x40229A: main (example.c:81)
+==29137== 
+==29137== 
+==29137== 34 errors in context 6 of 6:
+==29137== Conditional jump or move depends on uninitialised value(s)
+==29137==    at 0x4E8183E: vfprintf (vfprintf.c:1660)
+==29137==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
+==29137==    by 0x4E8B7E1: snprintf (snprintf.c:33)
+==29137==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
+==29137==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
+==29137==    by 0x401D4D: HuffNode_print (treefun.c:310)
+==29137==    by 0x402119: process_file (example.c:31)
+==29137==    by 0x40229A: main (example.c:81)
+==29137== 
+==29137== ERROR SUMMARY: 204 errors from 6 contexts (suppressed: 0 from 0)
