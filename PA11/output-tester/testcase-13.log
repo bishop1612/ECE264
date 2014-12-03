@@ -52,6 +52,4 @@ Testcase 13 :: 13-woods.bit-huff
    
    Message is:
    the woods are lovely, dark, and deep, but i have promises to keep, and miles to go before i sleep, and miles to go before i sleep.
-   Memory errors detected.
-   Valgrind log saved in /home/bishop/ECE264/Homeworks/Solutions/ECE264/PA11/output-tester/13-woods.bit-huff.student.memcheck.log.
-Testcase FAILED. Log file saved to testcase-13.log
+Pass.

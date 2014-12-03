@@ -149,6 +149,4 @@ Testcase 9 :: 09-poetry1.bit-huff
    Phenomenally.
    Phenomenal woman,
    That's me.
-   Memory errors detected.
-   Valgrind log saved in /home/bishop/ECE264/Homeworks/Solutions/ECE264/PA11/output-tester/09-poetry1.bit-huff.student.memcheck.log.
-Testcase FAILED. Log file saved to testcase-09.log
+Pass.

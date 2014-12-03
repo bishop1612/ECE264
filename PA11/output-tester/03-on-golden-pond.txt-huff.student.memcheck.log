@@ -1,85 +1,85 @@
-==31115== Memcheck, a memory error detector
-==31115== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==31115== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
-==31115== Command: ./student.out t inputs/03-on-golden-pond.txt-huff
-==31115== Parent PID: 31114
-==31115== 
---31115-- 
---31115-- Valgrind options:
---31115--    --tool=memcheck
---31115--    --leak-check=full
---31115--    --verbose
---31115--    --log-file=memcheck.log
---31115-- Contents of /proc/version:
---31115--   Linux version 3.13.0-32-generic (buildd@kissel) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014
---31115-- Arch and hwcaps: AMD64, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
---31115-- Page sizes: currently 4096, max supported 4096
---31115-- Valgrind library directory: /usr/lib/valgrind
---31115-- Reading syms from /tmp/.WEvhLW/student.out
---31115-- Reading syms from /lib/x86_64-linux-gnu/ld-2.19.so
---31115--   Considering /lib/x86_64-linux-gnu/ld-2.19.so ..
---31115--   .. CRC mismatch (computed 4cbae35e wanted 8d683c31)
---31115--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.19.so ..
---31115--   .. CRC is valid
---31115-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
---31115--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
---31115--   .. CRC mismatch (computed 37cdde19 wanted adc367dd)
---31115--    object doesn't have a symbol table
---31115--    object doesn't have a dynamic symbol table
---31115-- Scheduler: using generic scheduler lock implementation.
---31115-- Reading suppressions file: /usr/lib/valgrind/default.supp
-==31115== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-31115-by-bishop-on-???
-==31115== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-31115-by-bishop-on-???
-==31115== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-31115-by-bishop-on-???
-==31115== 
-==31115== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==31115== don't want to do, unless you know exactly what you're doing,
-==31115== or are doing some strange experiment):
-==31115==   /usr/lib/valgrind/../../bin/vgdb --pid=31115 ...command...
-==31115== 
-==31115== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==31115==   /path/to/gdb ./student.out
-==31115== and then give GDB the following command
-==31115==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=31115
-==31115== --pid is optional if only one valgrind process is running
-==31115== 
---31115-- REDIR: 0x4019ca0 (strlen) redirected to 0x38068331 (???)
---31115-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
---31115--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
---31115--   .. CRC mismatch (computed 329d6860 wanted c0186920)
---31115--    object doesn't have a symbol table
---31115-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
---31115--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
---31115--   .. CRC mismatch (computed 1fb85af8 wanted 2e9e3c16)
---31115--    object doesn't have a symbol table
-==31115== WARNING: new redirection conflicts with existing -- ignoring it
---31115--     old: 0x04019ca0 (strlen              ) R-> (0000.0) 0x38068331 ???
---31115--     new: 0x04019ca0 (strlen              ) R-> (2007.0) 0x04c2e1a0 strlen
---31115-- REDIR: 0x4019a50 (index) redirected to 0x4c2dd50 (index)
---31115-- REDIR: 0x4019c70 (strcmp) redirected to 0x4c2f2f0 (strcmp)
---31115-- REDIR: 0x401a9c0 (mempcpy) redirected to 0x4c31da0 (mempcpy)
---31115-- Reading syms from /lib/x86_64-linux-gnu/libc-2.19.so
---31115--   Considering /lib/x86_64-linux-gnu/libc-2.19.so ..
---31115--   .. CRC mismatch (computed 2b8f2acf wanted 60636809)
---31115--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.19.so ..
---31115--   .. CRC is valid
---31115-- REDIR: 0x4ec4ba0 (strcasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
---31115-- REDIR: 0x4ec6e90 (strncasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
---31115-- REDIR: 0x4ec4370 (memcpy@GLIBC_2.2.5) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
---31115-- REDIR: 0x4ec2600 (rindex) redirected to 0x4c2da30 (rindex)
---31115-- REDIR: 0x4ebeeb0 (strcmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
---31115-- REDIR: 0x4f78090 (__strcmp_ssse3) redirected to 0x4c2f1b0 (strcmp)
---31115-- REDIR: 0x4ecb900 (strchrnul) redirected to 0x4c319b0 (strchrnul)
---31115-- REDIR: 0x4eba590 (malloc) redirected to 0x4c2ab10 (malloc)
---31115-- REDIR: 0x4ec3250 (__GI_strstr) redirected to 0x4c32030 (__strstr_sse2)
---31115-- REDIR: 0x4ebac30 (free) redirected to 0x4c2bd80 (free)
---31115-- REDIR: 0x4ec0900 (strlen) redirected to 0x4c2e0e0 (strlen)
-==31115== 
-==31115== HEAP SUMMARY:
-==31115==     in use at exit: 0 bytes in 0 blocks
-==31115==   total heap usage: 121 allocs, 121 frees, 3,350 bytes allocated
-==31115== 
-==31115== All heap blocks were freed -- no leaks are possible
-==31115== 
-==31115== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-==31115== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==31767== Memcheck, a memory error detector
+==31767== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==31767== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==31767== Command: ./student.out t inputs/03-on-golden-pond.txt-huff
+==31767== Parent PID: 31766
+==31767== 
+--31767-- 
+--31767-- Valgrind options:
+--31767--    --tool=memcheck
+--31767--    --leak-check=full
+--31767--    --verbose
+--31767--    --log-file=memcheck.log
+--31767-- Contents of /proc/version:
+--31767--   Linux version 3.13.0-32-generic (buildd@kissel) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014
+--31767-- Arch and hwcaps: AMD64, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--31767-- Page sizes: currently 4096, max supported 4096
+--31767-- Valgrind library directory: /usr/lib/valgrind
+--31767-- Reading syms from /tmp/.cOBf3F/student.out
+--31767-- Reading syms from /lib/x86_64-linux-gnu/ld-2.19.so
+--31767--   Considering /lib/x86_64-linux-gnu/ld-2.19.so ..
+--31767--   .. CRC mismatch (computed 4cbae35e wanted 8d683c31)
+--31767--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.19.so ..
+--31767--   .. CRC is valid
+--31767-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--31767--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--31767--   .. CRC mismatch (computed 37cdde19 wanted adc367dd)
+--31767--    object doesn't have a symbol table
+--31767--    object doesn't have a dynamic symbol table
+--31767-- Scheduler: using generic scheduler lock implementation.
+--31767-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==31767== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-31767-by-bishop-on-???
+==31767== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-31767-by-bishop-on-???
+==31767== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-31767-by-bishop-on-???
+==31767== 
+==31767== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==31767== don't want to do, unless you know exactly what you're doing,
+==31767== or are doing some strange experiment):
+==31767==   /usr/lib/valgrind/../../bin/vgdb --pid=31767 ...command...
+==31767== 
+==31767== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==31767==   /path/to/gdb ./student.out
+==31767== and then give GDB the following command
+==31767==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=31767
+==31767== --pid is optional if only one valgrind process is running
+==31767== 
+--31767-- REDIR: 0x4019ca0 (strlen) redirected to 0x38068331 (???)
+--31767-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--31767--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--31767--   .. CRC mismatch (computed 329d6860 wanted c0186920)
+--31767--    object doesn't have a symbol table
+--31767-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--31767--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--31767--   .. CRC mismatch (computed 1fb85af8 wanted 2e9e3c16)
+--31767--    object doesn't have a symbol table
+==31767== WARNING: new redirection conflicts with existing -- ignoring it
+--31767--     old: 0x04019ca0 (strlen              ) R-> (0000.0) 0x38068331 ???
+--31767--     new: 0x04019ca0 (strlen              ) R-> (2007.0) 0x04c2e1a0 strlen
+--31767-- REDIR: 0x4019a50 (index) redirected to 0x4c2dd50 (index)
+--31767-- REDIR: 0x4019c70 (strcmp) redirected to 0x4c2f2f0 (strcmp)
+--31767-- REDIR: 0x401a9c0 (mempcpy) redirected to 0x4c31da0 (mempcpy)
+--31767-- Reading syms from /lib/x86_64-linux-gnu/libc-2.19.so
+--31767--   Considering /lib/x86_64-linux-gnu/libc-2.19.so ..
+--31767--   .. CRC mismatch (computed 2b8f2acf wanted 60636809)
+--31767--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.19.so ..
+--31767--   .. CRC is valid
+--31767-- REDIR: 0x4ec4ba0 (strcasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--31767-- REDIR: 0x4ec6e90 (strncasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--31767-- REDIR: 0x4ec4370 (memcpy@GLIBC_2.2.5) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--31767-- REDIR: 0x4ec2600 (rindex) redirected to 0x4c2da30 (rindex)
+--31767-- REDIR: 0x4ebeeb0 (strcmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--31767-- REDIR: 0x4f78090 (__strcmp_ssse3) redirected to 0x4c2f1b0 (strcmp)
+--31767-- REDIR: 0x4ecb900 (strchrnul) redirected to 0x4c319b0 (strchrnul)
+--31767-- REDIR: 0x4eba590 (malloc) redirected to 0x4c2ab10 (malloc)
+--31767-- REDIR: 0x4ec3250 (__GI_strstr) redirected to 0x4c32030 (__strstr_sse2)
+--31767-- REDIR: 0x4ebac30 (free) redirected to 0x4c2bd80 (free)
+--31767-- REDIR: 0x4ec0900 (strlen) redirected to 0x4c2e0e0 (strlen)
+==31767== 
+==31767== HEAP SUMMARY:
+==31767==     in use at exit: 0 bytes in 0 blocks
+==31767==   total heap usage: 121 allocs, 121 frees, 3,350 bytes allocated
+==31767== 
+==31767== All heap blocks were freed -- no leaks are possible
+==31767== 
+==31767== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==31767== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

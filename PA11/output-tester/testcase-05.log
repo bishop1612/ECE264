@@ -53,6 +53,4 @@ Testcase 5 :: 05-badges.txt-huff
    Message is:
    Badges? We ain't got no badges! We don't need no badges! I don't have to show you any stinking badges!
    
-   Memory errors detected.
-   Valgrind log saved in /home/bishop/ECE264/Homeworks/Solutions/ECE264/PA11/output-tester/05-badges.txt-huff.student.memcheck.log.
-Testcase FAILED. Log file saved to testcase-05.log
+Pass.

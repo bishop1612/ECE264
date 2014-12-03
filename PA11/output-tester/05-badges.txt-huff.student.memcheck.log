@@ -1,222 +1,85 @@
-==28924== Memcheck, a memory error detector
-==28924== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==28924== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
-==28924== Command: ./student.out t inputs/05-badges.txt-huff
-==28924== Parent PID: 28923
-==28924== 
---28924-- 
---28924-- Valgrind options:
---28924--    --tool=memcheck
---28924--    --leak-check=full
---28924--    --verbose
---28924--    --log-file=memcheck.log
---28924-- Contents of /proc/version:
---28924--   Linux version 3.13.0-32-generic (buildd@kissel) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014
---28924-- Arch and hwcaps: AMD64, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
---28924-- Page sizes: currently 4096, max supported 4096
---28924-- Valgrind library directory: /usr/lib/valgrind
---28924-- Reading syms from /tmp/.0fOA8S/student.out
---28924-- Reading syms from /lib/x86_64-linux-gnu/ld-2.19.so
---28924--   Considering /lib/x86_64-linux-gnu/ld-2.19.so ..
---28924--   .. CRC mismatch (computed 4cbae35e wanted 8d683c31)
---28924--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.19.so ..
---28924--   .. CRC is valid
---28924-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
---28924--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
---28924--   .. CRC mismatch (computed 37cdde19 wanted adc367dd)
---28924--    object doesn't have a symbol table
---28924--    object doesn't have a dynamic symbol table
---28924-- Scheduler: using generic scheduler lock implementation.
---28924-- Reading suppressions file: /usr/lib/valgrind/default.supp
-==28924== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-28924-by-bishop-on-???
-==28924== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-28924-by-bishop-on-???
-==28924== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-28924-by-bishop-on-???
-==28924== 
-==28924== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==28924== don't want to do, unless you know exactly what you're doing,
-==28924== or are doing some strange experiment):
-==28924==   /usr/lib/valgrind/../../bin/vgdb --pid=28924 ...command...
-==28924== 
-==28924== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==28924==   /path/to/gdb ./student.out
-==28924== and then give GDB the following command
-==28924==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=28924
-==28924== --pid is optional if only one valgrind process is running
-==28924== 
---28924-- REDIR: 0x4019ca0 (strlen) redirected to 0x38068331 (???)
---28924-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
---28924--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
---28924--   .. CRC mismatch (computed 329d6860 wanted c0186920)
---28924--    object doesn't have a symbol table
---28924-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
---28924--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
---28924--   .. CRC mismatch (computed 1fb85af8 wanted 2e9e3c16)
---28924--    object doesn't have a symbol table
-==28924== WARNING: new redirection conflicts with existing -- ignoring it
---28924--     old: 0x04019ca0 (strlen              ) R-> (0000.0) 0x38068331 ???
---28924--     new: 0x04019ca0 (strlen              ) R-> (2007.0) 0x04c2e1a0 strlen
---28924-- REDIR: 0x4019a50 (index) redirected to 0x4c2dd50 (index)
---28924-- REDIR: 0x4019c70 (strcmp) redirected to 0x4c2f2f0 (strcmp)
---28924-- REDIR: 0x401a9c0 (mempcpy) redirected to 0x4c31da0 (mempcpy)
---28924-- Reading syms from /lib/x86_64-linux-gnu/libc-2.19.so
---28924--   Considering /lib/x86_64-linux-gnu/libc-2.19.so ..
---28924--   .. CRC mismatch (computed 2b8f2acf wanted 60636809)
---28924--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.19.so ..
---28924--   .. CRC is valid
---28924-- REDIR: 0x4ec4ba0 (strcasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
---28924-- REDIR: 0x4ec6e90 (strncasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
---28924-- REDIR: 0x4ec4370 (memcpy@GLIBC_2.2.5) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
---28924-- REDIR: 0x4ec2600 (rindex) redirected to 0x4c2da30 (rindex)
---28924-- REDIR: 0x4ebeeb0 (strcmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
---28924-- REDIR: 0x4f78090 (__strcmp_ssse3) redirected to 0x4c2f1b0 (strcmp)
---28924-- REDIR: 0x4ecb900 (strchrnul) redirected to 0x4c319b0 (strchrnul)
---28924-- REDIR: 0x4eba590 (malloc) redirected to 0x4c2ab10 (malloc)
---28924-- REDIR: 0x4ec3250 (__GI_strstr) redirected to 0x4c32030 (__strstr_sse2)
---28924-- REDIR: 0x4ebac30 (free) redirected to 0x4c2bd80 (free)
---28924-- REDIR: 0x4ec0900 (strlen) redirected to 0x4c2e0e0 (strlen)
-==28924== Conditional jump or move depends on uninitialised value(s)
-==28924==    at 0x4E8183E: vfprintf (vfprintf.c:1660)
-==28924==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
-==28924==    by 0x4E8B7E1: snprintf (snprintf.c:33)
-==28924==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
-==28924==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
-==28924==    by 0x401D4D: HuffNode_print (treefun.c:310)
-==28924==    by 0x402119: process_file (example.c:31)
-==28924==    by 0x40229A: main (example.c:81)
-==28924== 
-==28924== Use of uninitialised value of size 8
-==28924==    at 0x4E80CFB: _itoa_word (_itoa.c:179)
-==28924==    by 0x4E849A6: vfprintf (vfprintf.c:1660)
-==28924==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
-==28924==    by 0x4E8B7E1: snprintf (snprintf.c:33)
-==28924==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
-==28924==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
-==28924==    by 0x401D4D: HuffNode_print (treefun.c:310)
-==28924==    by 0x402119: process_file (example.c:31)
-==28924==    by 0x40229A: main (example.c:81)
-==28924== 
-==28924== Conditional jump or move depends on uninitialised value(s)
-==28924==    at 0x4E80D05: _itoa_word (_itoa.c:179)
-==28924==    by 0x4E849A6: vfprintf (vfprintf.c:1660)
-==28924==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
-==28924==    by 0x4E8B7E1: snprintf (snprintf.c:33)
-==28924==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
-==28924==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
-==28924==    by 0x401D4D: HuffNode_print (treefun.c:310)
-==28924==    by 0x402119: process_file (example.c:31)
-==28924==    by 0x40229A: main (example.c:81)
-==28924== 
-==28924== Conditional jump or move depends on uninitialised value(s)
-==28924==    at 0x4E849F2: vfprintf (vfprintf.c:1660)
-==28924==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
-==28924==    by 0x4E8B7E1: snprintf (snprintf.c:33)
-==28924==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
-==28924==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
-==28924==    by 0x401D4D: HuffNode_print (treefun.c:310)
-==28924==    by 0x402119: process_file (example.c:31)
-==28924==    by 0x40229A: main (example.c:81)
-==28924== 
-==28924== Conditional jump or move depends on uninitialised value(s)
-==28924==    at 0x4E81909: vfprintf (vfprintf.c:1660)
-==28924==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
-==28924==    by 0x4E8B7E1: snprintf (snprintf.c:33)
-==28924==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
-==28924==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
-==28924==    by 0x401D4D: HuffNode_print (treefun.c:310)
-==28924==    by 0x402119: process_file (example.c:31)
-==28924==    by 0x40229A: main (example.c:81)
-==28924== 
-==28924== Conditional jump or move depends on uninitialised value(s)
-==28924==    at 0x4E8198C: vfprintf (vfprintf.c:1660)
-==28924==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
-==28924==    by 0x4E8B7E1: snprintf (snprintf.c:33)
-==28924==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
-==28924==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
-==28924==    by 0x401D4D: HuffNode_print (treefun.c:310)
-==28924==    by 0x402119: process_file (example.c:31)
-==28924==    by 0x40229A: main (example.c:81)
-==28924== 
-==28924== 
-==28924== HEAP SUMMARY:
-==28924==     in use at exit: 0 bytes in 0 blocks
-==28924==   total heap usage: 97 allocs, 97 frees, 2,662 bytes allocated
-==28924== 
-==28924== All heap blocks were freed -- no leaks are possible
-==28924== 
-==28924== Use --track-origins=yes to see where uninitialised values come from
-==28924== ERROR SUMMARY: 138 errors from 6 contexts (suppressed: 0 from 0)
-==28924== 
-==28924== 23 errors in context 1 of 6:
-==28924== Conditional jump or move depends on uninitialised value(s)
-==28924==    at 0x4E8198C: vfprintf (vfprintf.c:1660)
-==28924==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
-==28924==    by 0x4E8B7E1: snprintf (snprintf.c:33)
-==28924==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
-==28924==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
-==28924==    by 0x401D4D: HuffNode_print (treefun.c:310)
-==28924==    by 0x402119: process_file (example.c:31)
-==28924==    by 0x40229A: main (example.c:81)
-==28924== 
-==28924== 
-==28924== 23 errors in context 2 of 6:
-==28924== Conditional jump or move depends on uninitialised value(s)
-==28924==    at 0x4E81909: vfprintf (vfprintf.c:1660)
-==28924==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
-==28924==    by 0x4E8B7E1: snprintf (snprintf.c:33)
-==28924==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
-==28924==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
-==28924==    by 0x401D4D: HuffNode_print (treefun.c:310)
-==28924==    by 0x402119: process_file (example.c:31)
-==28924==    by 0x40229A: main (example.c:81)
-==28924== 
-==28924== 
-==28924== 23 errors in context 3 of 6:
-==28924== Conditional jump or move depends on uninitialised value(s)
-==28924==    at 0x4E849F2: vfprintf (vfprintf.c:1660)
-==28924==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
-==28924==    by 0x4E8B7E1: snprintf (snprintf.c:33)
-==28924==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
-==28924==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
-==28924==    by 0x401D4D: HuffNode_print (treefun.c:310)
-==28924==    by 0x402119: process_file (example.c:31)
-==28924==    by 0x40229A: main (example.c:81)
-==28924== 
-==28924== 
-==28924== 23 errors in context 4 of 6:
-==28924== Conditional jump or move depends on uninitialised value(s)
-==28924==    at 0x4E80D05: _itoa_word (_itoa.c:179)
-==28924==    by 0x4E849A6: vfprintf (vfprintf.c:1660)
-==28924==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
-==28924==    by 0x4E8B7E1: snprintf (snprintf.c:33)
-==28924==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
-==28924==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
-==28924==    by 0x401D4D: HuffNode_print (treefun.c:310)
-==28924==    by 0x402119: process_file (example.c:31)
-==28924==    by 0x40229A: main (example.c:81)
-==28924== 
-==28924== 
-==28924== 23 errors in context 5 of 6:
-==28924== Use of uninitialised value of size 8
-==28924==    at 0x4E80CFB: _itoa_word (_itoa.c:179)
-==28924==    by 0x4E849A6: vfprintf (vfprintf.c:1660)
-==28924==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
-==28924==    by 0x4E8B7E1: snprintf (snprintf.c:33)
-==28924==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
-==28924==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
-==28924==    by 0x401D4D: HuffNode_print (treefun.c:310)
-==28924==    by 0x402119: process_file (example.c:31)
-==28924==    by 0x40229A: main (example.c:81)
-==28924== 
-==28924== 
-==28924== 23 errors in context 6 of 6:
-==28924== Conditional jump or move depends on uninitialised value(s)
-==28924==    at 0x4E8183E: vfprintf (vfprintf.c:1660)
-==28924==    by 0x4EAA3B8: vsnprintf (vsnprintf.c:119)
-==28924==    by 0x4E8B7E1: snprintf (snprintf.c:33)
-==28924==    by 0x401503: HuffNode_print_Worker (treefun.c:127)
-==28924==    by 0x4015AC: HuffNode_printPlain (treefun.c:142)
-==28924==    by 0x401D4D: HuffNode_print (treefun.c:310)
-==28924==    by 0x402119: process_file (example.c:31)
-==28924==    by 0x40229A: main (example.c:81)
-==28924== 
-==28924== ERROR SUMMARY: 138 errors from 6 contexts (suppressed: 0 from 0)
+==31833== Memcheck, a memory error detector
+==31833== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==31833== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==31833== Command: ./student.out t inputs/05-badges.txt-huff
+==31833== Parent PID: 31832
+==31833== 
+--31833-- 
+--31833-- Valgrind options:
+--31833--    --tool=memcheck
+--31833--    --leak-check=full
+--31833--    --verbose
+--31833--    --log-file=memcheck.log
+--31833-- Contents of /proc/version:
+--31833--   Linux version 3.13.0-32-generic (buildd@kissel) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #57-Ubuntu SMP Tue Jul 15 03:51:08 UTC 2014
+--31833-- Arch and hwcaps: AMD64, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--31833-- Page sizes: currently 4096, max supported 4096
+--31833-- Valgrind library directory: /usr/lib/valgrind
+--31833-- Reading syms from /tmp/.cOBf3F/student.out
+--31833-- Reading syms from /lib/x86_64-linux-gnu/ld-2.19.so
+--31833--   Considering /lib/x86_64-linux-gnu/ld-2.19.so ..
+--31833--   .. CRC mismatch (computed 4cbae35e wanted 8d683c31)
+--31833--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.19.so ..
+--31833--   .. CRC is valid
+--31833-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--31833--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--31833--   .. CRC mismatch (computed 37cdde19 wanted adc367dd)
+--31833--    object doesn't have a symbol table
+--31833--    object doesn't have a dynamic symbol table
+--31833-- Scheduler: using generic scheduler lock implementation.
+--31833-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==31833== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-31833-by-bishop-on-???
+==31833== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-31833-by-bishop-on-???
+==31833== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-31833-by-bishop-on-???
+==31833== 
+==31833== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==31833== don't want to do, unless you know exactly what you're doing,
+==31833== or are doing some strange experiment):
+==31833==   /usr/lib/valgrind/../../bin/vgdb --pid=31833 ...command...
+==31833== 
+==31833== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==31833==   /path/to/gdb ./student.out
+==31833== and then give GDB the following command
+==31833==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=31833
+==31833== --pid is optional if only one valgrind process is running
+==31833== 
+--31833-- REDIR: 0x4019ca0 (strlen) redirected to 0x38068331 (???)
+--31833-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--31833--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--31833--   .. CRC mismatch (computed 329d6860 wanted c0186920)
+--31833--    object doesn't have a symbol table
+--31833-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--31833--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--31833--   .. CRC mismatch (computed 1fb85af8 wanted 2e9e3c16)
+--31833--    object doesn't have a symbol table
+==31833== WARNING: new redirection conflicts with existing -- ignoring it
+--31833--     old: 0x04019ca0 (strlen              ) R-> (0000.0) 0x38068331 ???
+--31833--     new: 0x04019ca0 (strlen              ) R-> (2007.0) 0x04c2e1a0 strlen
+--31833-- REDIR: 0x4019a50 (index) redirected to 0x4c2dd50 (index)
+--31833-- REDIR: 0x4019c70 (strcmp) redirected to 0x4c2f2f0 (strcmp)
+--31833-- REDIR: 0x401a9c0 (mempcpy) redirected to 0x4c31da0 (mempcpy)
+--31833-- Reading syms from /lib/x86_64-linux-gnu/libc-2.19.so
+--31833--   Considering /lib/x86_64-linux-gnu/libc-2.19.so ..
+--31833--   .. CRC mismatch (computed 2b8f2acf wanted 60636809)
+--31833--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.19.so ..
+--31833--   .. CRC is valid
+--31833-- REDIR: 0x4ec4ba0 (strcasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--31833-- REDIR: 0x4ec6e90 (strncasecmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--31833-- REDIR: 0x4ec4370 (memcpy@GLIBC_2.2.5) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--31833-- REDIR: 0x4ec2600 (rindex) redirected to 0x4c2da30 (rindex)
+--31833-- REDIR: 0x4ebeeb0 (strcmp) redirected to 0x4a25720 (_vgnU_ifunc_wrapper)
+--31833-- REDIR: 0x4f78090 (__strcmp_ssse3) redirected to 0x4c2f1b0 (strcmp)
+--31833-- REDIR: 0x4ecb900 (strchrnul) redirected to 0x4c319b0 (strchrnul)
+--31833-- REDIR: 0x4eba590 (malloc) redirected to 0x4c2ab10 (malloc)
+--31833-- REDIR: 0x4ec3250 (__GI_strstr) redirected to 0x4c32030 (__strstr_sse2)
+--31833-- REDIR: 0x4ebac30 (free) redirected to 0x4c2bd80 (free)
+--31833-- REDIR: 0x4ec0900 (strlen) redirected to 0x4c2e0e0 (strlen)
+==31833== 
+==31833== HEAP SUMMARY:
+==31833==     in use at exit: 0 bytes in 0 blocks
+==31833==   total heap usage: 97 allocs, 97 frees, 2,662 bytes allocated
+==31833== 
+==31833== All heap blocks were freed -- no leaks are possible
+==31833== 
+==31833== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==31833== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

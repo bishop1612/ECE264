@@ -86,6 +86,4 @@ Testcase 7 :: 07-description.bit-huff
    
    Message is:
    The description is mainly taken from Professor Vijay Raghunathan. In this assignment, you will utilize your knowledge about priority queues, stacks, and trees to design a file compression program and file decompression program (similar to zip and unzip). You will base your utilities on the widely used algorithmic technique of Huffman coding, which is used in JPEG compression as well as in MP3 audio compression.
-   Memory errors detected.
-   Valgrind log saved in /home/bishop/ECE264/Homeworks/Solutions/ECE264/PA11/output-tester/07-description.bit-huff.student.memcheck.log.
-Testcase FAILED. Log file saved to testcase-07.log
+Pass.
